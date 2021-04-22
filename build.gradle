@@ -21,7 +21,6 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 group = 'ru.nti'
-var mainClassNameUrl = 'ru.nti.tehsystem.TehsystemApplication'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -91,8 +90,8 @@ test {
 }
 
 bootJar {
-    mainClassName = mainClassNameUrl
+    mainClassName = 'ru.nti.tehsystem.TehsystemApplication'
 }
 springBoot {
-    mainClassName = mainClassNameUrl
+    mainClassName = 'ru.nti.tehsystem.TehsystemApplication'
 }
