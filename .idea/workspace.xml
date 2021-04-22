@@ -38,7 +38,9 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="test git" />
+    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="test git">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -312,8 +314,8 @@
       <item itemvalue="Gradle.frontend [jar build]" />
       <item itemvalue="Gradle.frontend [bootJar]" />
       <item itemvalue="Gradle.TehSystemCity [bootJar]" />
-      <item itemvalue="Spring Boot.TehsystemApplication" />
       <item itemvalue="JUnit.TehsystemApplicationTests" />
+      <item itemvalue="Spring Boot.TehsystemApplication" />
     </list>
     <recent_temporary>
       <list>
