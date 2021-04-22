@@ -6,21 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="gradle build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/polyfills.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/polyfills.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/runtime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/runtime.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/styles.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/vendor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/vendor.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,19 +136,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.TehSystemCity [clean]">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TehSystemCity [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -267,27 +239,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Remote">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="functionName" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Gradle.frontend [test]" />
-      <item itemvalue="Spring Boot.TehsystemApplication" />
-      <item itemvalue="JUnit.TehsystemApplicationTests" />
-      <item itemvalue="JUnit.TehsystemApplicationTests (1)" />
       <item itemvalue="Gradle.UserTest" />
       <item itemvalue="Gradle.TehSystemCity [clean]" />
+      <item itemvalue="JUnit.TehsystemApplicationTests" />
+      <item itemvalue="Spring Boot.TehsystemApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.TehSystemCity [clean]" />
         <item itemvalue="Gradle.UserTest" />
-        <item itemvalue="JUnit.TehsystemApplicationTests (1)" />
         <item itemvalue="JUnit.TehsystemApplicationTests" />
         <item itemvalue="Gradle.frontend [test]" />
       </list>
@@ -305,6 +267,7 @@
       <workItem from="1619021379671" duration="1855000" />
       <workItem from="1619023308191" duration="6894000" />
       <workItem from="1619060615336" duration="651000" />
+      <workItem from="1619067101721" duration="595000" />
     </task>
     <task id="LOCAL-00001" summary="gradle build">
       <created>1619060822594</created>
