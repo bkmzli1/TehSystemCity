@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.5.9.RELEASE'
+        springBootVersion = '2.4.5'
     }
     repositories {
         mavenCentral()
@@ -16,10 +16,12 @@ plugins {
     id 'java'
 }
 apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 group = 'ru.nti'
+mainClassNameUrl = 'ru.nti.tehsystem.TehsystemApplication'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -86,4 +88,11 @@ dependencies {
 }
 test {
     useJUnitPlatform()
+}
+
+bootJar {
+    mainClassName = mainClassNameUrl
+}
+springBoot {
+    mainClassName = mainClassNameUrl
 }
