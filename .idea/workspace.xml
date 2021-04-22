@@ -38,9 +38,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="gradle ng build">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="gradle ng build" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,6 +118,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/TehsystemApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/local.properties" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/RoleRepo.java" root0="FORCE_HIGHLIGHTING" />
@@ -232,27 +231,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="UserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.nti.tehsystem.UserTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="frontend [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -330,20 +308,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.UserTest" />
       <item itemvalue="Gradle.TehSystemCity [clean]" />
-      <item itemvalue="Spring Boot.TehsystemApplication" />
       <item itemvalue="Gradle.frontend [jar build]" />
       <item itemvalue="Gradle.frontend [bootJar]" />
       <item itemvalue="Gradle.TehSystemCity [bootJar]" />
+      <item itemvalue="Spring Boot.TehsystemApplication" />
+      <item itemvalue="JUnit.TehsystemApplicationTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TehsystemApplicationTests" />
         <item itemvalue="Gradle.TehSystemCity [bootJar]" />
         <item itemvalue="Gradle.frontend [bootJar]" />
         <item itemvalue="Gradle.frontend [jar build]" />
         <item itemvalue="Gradle.TehSystemCity [clean]" />
-        <item itemvalue="Gradle.UserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -400,5 +378,15 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="regexState">
+    <option name="map">
+      <map>
+        <entry key="flags" value="0" />
+        <entry key="mode" value="0" />
+        <entry key="regex" value="" />
+        <entry key="text" value="" />
+      </map>
+    </option>
   </component>
 </project>
