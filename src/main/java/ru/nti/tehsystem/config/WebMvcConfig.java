@@ -31,6 +31,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/templates/**")
                 .addResourceLocations("classpath:/templates/");
 
+
         registry.addResourceHandler("/**/*")
                 .addResourceLocations("classpath:/templates/")
                 .resourceChain(true)
