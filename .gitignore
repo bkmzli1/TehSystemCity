@@ -1,12 +1,14 @@
 /.gradle/
 /.idea/
 /.idea/workspace.xml
+/.idea/codestream.xml
 /frontend/.gradle/
 /frontend/node_modules/
 /frontend/node_modules/*
 /frontend/node_mod*
 /out/
 /frontend/build/*
+/frontend/.idea
 /build/classes/
 
 /build/generated/
