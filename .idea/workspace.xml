@@ -38,7 +38,9 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="test git" />
+    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="test git">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +106,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="before_the_master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -312,8 +314,8 @@
       <item itemvalue="Gradle.frontend [jar build]" />
       <item itemvalue="Gradle.frontend [bootJar]" />
       <item itemvalue="Gradle.TehSystemCity [bootJar]" />
-      <item itemvalue="Spring Boot.TehsystemApplication" />
       <item itemvalue="JUnit.TehsystemApplicationTests" />
+      <item itemvalue="Spring Boot.TehsystemApplication" />
     </list>
     <recent_temporary>
       <list>
