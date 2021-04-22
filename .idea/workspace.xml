@@ -38,7 +38,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="gradle ng build" />
+    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="test git" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -352,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619061493054</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="test git">
+      <created>1619080758650</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619080758650</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +380,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gradle build" />
     <MESSAGE value="gradle ng build" />
-    <option name="LAST_COMMIT_MESSAGE" value="gradle ng build" />
+    <MESSAGE value="test git" />
+    <option name="LAST_COMMIT_MESSAGE" value="test git" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
