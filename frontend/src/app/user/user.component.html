@@ -1,0 +1,131 @@
+<section class="u-align-center u-clearfix u-section-1" id="carousel_cce9">
+  <div [style.backgroundImage]="'url('+app.serverURL+login.imgFon.img+')'"
+       class="u-container-style u-expanded-width u-group u-image u-shape-rectangle u-image-1" data-image-width="1280"
+       data-image-height="853">
+    <div class="u-container-layout u-container-layout-1"></div>
+  </div>
+  <div alt="" [style.backgroundImage]="'url('+app.serverURL+login.img.img+')'"
+       class="u-image u-image-circle u-image-2"></div>
+</section>
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <div class="container mt-3 ">
+        <h3 align="center">О профиле </h3>
+        <div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Логин     </span>
+            </div>
+            <label class="form-control"> {{login.username}}</label>
+          </div>
+        </div>
+        <div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> ФИО</span>
+            </div>
+            <label class="form-control"
+            > {{login.lastName}} {{login.firstName}} {{login.middleName}}</label>
+          </div>
+
+        </div>
+        <div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Почта     </span>
+            </div>
+            <label class="form-control"
+            >{{login.email}}</label>
+          </div>
+
+        </div>
+        <div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Телефон     </span>
+            </div>
+            <label class="form-control"
+            >{{login.telephone}}</label>
+          </div>
+
+        </div>
+        <div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Роли     </span>
+            </div>
+            <label class="form-control">
+              <div *ngFor="let role of login.authorities">{{role.authority}} </div>
+            </label>
+          </div>
+
+        </div>
+
+
+        <div *ngIf="app.isAdmin || data == true">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Учетная запись просрочена </span>
+            </div>
+            <label class="form-control">
+              <div>{{bolConvertor(!login.accountNonExpired)}} </div>
+            </label>
+          </div>
+
+        </div>
+        <div *ngIf="app.isAdmin || data == true">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Учетная запись  заблокирована     </span>
+            </div>
+            <label class="form-control">
+              <div>{{ bolConvertor(!login.accountNonLocked)}} </div>
+            </label>
+          </div>
+
+        </div>
+        <div *ngIf="app.isAdmin || data == true">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Учетная запись включена     </span>
+            </div>
+            <label class="form-control"> {{bolConvertor(login.enabled)}} </label>
+          </div>
+
+        </div>
+        <div *ngIf="app.isAdmin || data == true">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Учетная запись истекла</span>
+            </div>
+            <label class="form-control">{{bolConvertor(!login.credentialsNonExpired)}}</label>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col">
+      <div class="container mt-3 ">
+        <h3 align="center">Уведомления</h3>
+        <div class="alert alert-primary" role="alert"*ngFor="let item of login.notifications">
+          <a (click)="close(item.id)"
+             class="cliseX">x</a>
+          <div class="row">
+            <div class="col">
+              {{item.taskId.creator.lastName}} {{item.taskId.creator.firstName}} {{item.taskId.creator.middleName}}
+            </div>
+            <div style="text-align: right" class="col">
+              {{item.data}}
+            </div>
+          </div>
+          Создано для вас задание. Название "{{item.taskId.name}}"
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codestream.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/e2e/protractor.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/e2e/src/app.po.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/e2e/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-order/create-order.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-order/create-order.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-order/create-order.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-order/create-order.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-user/create-user.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-user/create-user.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-user/create-user.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-user/create-user.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/create-user/phone-mask.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/head/head.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/head/head.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/head/head.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/head/head.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/list-order/list-order.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/list-order/list-order.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/list-order/list-order.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/list-order/list-order.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/order/order.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/order/order.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/order/order.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/order/order.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/ordering/ordering.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/ordering/ordering.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/ordering/ordering.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/ordering/ordering.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/regedit/regedit.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/regedit/regedit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/regedit/regedit.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/regedit/regedit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user-edit/user-edit.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user-edit/user-edit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user-edit/user-edit.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user-edit/user-edit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user/user.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user/user.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user/user.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/user/user.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.worker.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/TehsystemApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/config/EncryptionConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/config/InitialDataLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/config/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/controller/ImgController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/controller/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/controller/MassageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/controller/NotificationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/controller/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/Img.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/Massages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/Notifications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/Roles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/Views.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/enums/ImgType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/enums/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/domain/enums/enums.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/ImgCreateModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/MassageModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/RoleServiceModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/TaskCreate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/UserEditBindingModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/UserRegisterBindingModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/validations/IsEmailRegistered.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/validations/IsEmailRegisteredValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/validations/IsPasswordMatching.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/validations/IsPasswordMatchingValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/validations/IsUsernameTaken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/model/validations/IsUsernameTakenValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/ImgRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/MassagesRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/NotificationsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/RoleRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/TaskRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/UserRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/impl/ImgService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/impl/MassageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/impl/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/impl/TaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/impl/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/service/ImgServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/service/MassageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/service/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/service/TaskServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/nti/tehsystem/TehsystemApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/frontend">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/frontend">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="frontend" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="frontend" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tehsystem" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tehsystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tehsystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/TehsystemApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/local.properties" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/repo/RoleRepo.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/controller/MassageController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/ru/nti/tehsystem/services/service/RoleServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/frontend/gradle/wrapper/gradle-wrapper.properties" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/build.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/settings.gradle" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1rU0yw23NZ7pnH5qB06ED4r76rz" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ru/nti/tehsystem" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="B:\TehSystemCity\src\main\java\ru\nti\tehsystem" />
+      <recent name="B:\TehSystemCity\frontend\.gradle\npm" />
+      <recent name="B:\TehSystemCity\frontend" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle npm_run_build" />
+      <command value="gradle build -PtestAllSupportedGradleVersions=true" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.TehsystemApplication">
+    <configuration name="TehSystemCity [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TehSystemCity [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ru.nti.tehsystem.UserTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="frontend [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/frontend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserTest.UserRepoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tehsystem.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.nti.tehsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.nti.tehsystem" />
+      <option name="MAIN_CLASS_NAME" value="ru.nti.tehsystem.UserTest" />
+      <option name="METHOD_NAME" value="UserRepoTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TehsystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tehsystem.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.nti.tehsystem.TehsystemApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.TehSystemCity [clean]" />
+        <item itemvalue="JUnit.UserTest.UserRepoTest" />
+        <item itemvalue="Gradle.UserTest" />
+        <item itemvalue="Gradle.UserTest" />
+        <item itemvalue="Gradle.frontend [build]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="" />
+      <created>1619015619697</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619015619697</updated>
+      <workItem from="1619015635004" duration="3433000" />
+      <workItem from="1619021379671" duration="1855000" />
+      <workItem from="1619023308191" duration="6894000" />
+      <workItem from="1619060615336" duration="24000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
