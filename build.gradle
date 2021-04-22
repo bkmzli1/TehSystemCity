@@ -23,18 +23,18 @@ group = 'ru.nti'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-//jar {
-//    baseName = 'spring-angular'
-//    version = '0.0.1-SNAPSHOT'
-//    from('frontend/dist') {
-//        into 'public'
-//    }
-//}
+jar {
+    baseName = 'spring-angular'
+    version = '0.0.1-SNAPSHOT'
+    from('frontend/dist') {
+        into 'public'
+    }
+}
 
 repositories {
     mavenCentral()
 }
-//processResources.dependsOn('frontend:build')
+processResources.dependsOn('frontend:build')
 dependencies {
     /// SPRING BOOT
     implementation 'org.springframework.boot:spring-boot-starter'
