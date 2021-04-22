@@ -38,9 +38,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="test git">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="51baf5a3-9f56-4055-80ad-8464bcbd260d" name="Default Changelist" comment="test git" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -361,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619080758650</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test git">
+      <created>1619083072641</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619083072641</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
