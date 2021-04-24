@@ -26,7 +26,7 @@ public class NotificationsController {
 
     @GetMapping("")
     @ResponseBody
-    @JsonView(Views.NotificationsBasic.class)
+    @JsonView(Views.UserBasic.class)
     public Object notifications(Authentication authentication) throws InterruptedException {
         try {
             User user = userRepo.findUserById(((User) authentication.getPrincipal()).getId());
@@ -45,7 +45,7 @@ public class NotificationsController {
 
     @GetMapping("/get")
     @ResponseBody
-    @JsonView(Views.NotificationsBasic.class)
+    @JsonView({Views.UserBasic.class})
     public Object notification(Authentication authentication) throws InterruptedException {
         try {
             User user = userRepo.findUserById(((User) authentication.getPrincipal()).getId());
@@ -58,7 +58,7 @@ public class NotificationsController {
             return notifications;
         } catch (NullPointerException nullPointerException) {
             Thread.sleep(1000);
-            return 0;
+            return null;
         }
 
     }

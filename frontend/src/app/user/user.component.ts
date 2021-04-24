@@ -69,6 +69,7 @@ export class UserComponent implements OnInit, OnDestroy {
     this.uploader = false;
     this.uplod();
     this.appc.cont = false;
+    console.log(this.login.id == app.login.id);
   }
 
   uplod(): any {

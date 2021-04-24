@@ -6,7 +6,9 @@ import  ru.nti.tehsystem.domain.enums.Level;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.Set;
+import java.util.TreeSet;
 
 import static java.lang.Math.*;
 
@@ -37,7 +39,7 @@ public class Task {
     @JsonView(Views.TaskAll.class)
     private Set<Img> imgs;
     @ManyToOne
-    @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@creator")
+    @JsonIdentityInfo(generator=ObjectIdGenerators.StringIdGenerator.class, property="@creator")
     @JsonView({Views.TaskBasic.class, Views.NotificationsBasic.class})
     private User creator;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -63,6 +65,10 @@ public class Task {
     private boolean doneCrate = false;
     @JsonView(Views.TaskUpdate.class)
     private boolean deletes = false;
+    @JsonView(Views.TaskUpdate.class)
+    private boolean adopted = false;
+    @JsonView(Views.TaskUpdate.class)
+    private boolean rejected = false;
 
 
     public String getId() {
@@ -115,10 +121,14 @@ public class Task {
     }
 
     public Set<Massages> getMassages() {
-        return massages;
+        Set<Massages> projects = new TreeSet<>(Comparator.comparing(Massages::getDateTime));
+        projects.addAll(massages);
+        return projects;
     }
 
     public void setMassages(Set<Massages> massages) {
+
+
         this.massages = massages;
     }
 
@@ -176,5 +186,21 @@ public class Task {
 
     public void setDeletes(boolean deletes) {
         this.deletes = deletes;
+    }
+
+    public boolean isAdopted() {
+        return adopted;
+    }
+
+    public void setAdopted(boolean adopted) {
+        this.adopted = adopted;
+    }
+
+    public boolean isRejected() {
+        return rejected;
+    }
+
+    public void setRejected(boolean rejected) {
+        this.rejected = rejected;
     }
 }

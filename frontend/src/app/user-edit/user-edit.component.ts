@@ -41,6 +41,7 @@ export class UserEditComponent implements OnInit {
 
   constructor(private app: AppService, private http: HttpClient, private router: Router, private cookieService: CookieService, public appc: AppComponent, fb: FormBuilder, private route: ActivatedRoute,) {
     this.route.params.subscribe((params: any) => this.id = params.id);
+
     this.http.get(this.app.serverURL + 'user/' + this.id).subscribe((next: User) => {
       next.password = '';
       this.user = next;

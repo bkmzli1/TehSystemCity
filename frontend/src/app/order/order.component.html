@@ -2,8 +2,9 @@
 
   <h1 align="center">Тема: {{orders.name}}</h1>
   <div>
-    <p *ngIf="orders.done == true">Статус: Выполнено {{orders.executed}} {{begin()}}</p>
+    <p *ngIf=""> {{begin()}}</p>
     <p *ngIf="orders.done == false">Статус: Не выполнено</p>
+    <p>{{texstDone()}}</p>
   </div>
   <p>Создано:{{orders.crate}}</p>
   <p>Создал:{{orders.creator.lastName + ' ' + orders.creator.firstName + ' ' + orders.creator.middleName}}</p>
@@ -24,30 +25,43 @@
     </label>
   </div>
 
-  <div class="main inline">
+  <div class="main inline" *ngIf="ims()">
     <a *ngIf="orders.imgs.length>0" style="width: 100%" [href]="app.serverURL + 'task/download/'+ orders.id">
       <button style="width: 100%" class="ld-but">Скачать все файлы ({{orders.imgs.length}})</button>
     </a>
 
+    <div *ngIf="!orders.rejected">
+      <div *ngIf="!orders.done" [hidden]="!isUserEx()">
 
-    <div *ngIf="!orders.done" [hidden]="!isUserEx()">
+        <p></p>
+        <button style="width: 100%" class="ld-but" (click)="exComplete()">Отметить как выполненное
+        </button>
+        <p></p>
+        {{con(!orders.adopted)}}
+        <div *ngIf="!orders.adopted">
+          <button style="width: 100%" class="ld-but" (click)="adopted(true)">Принять</button>
+          <p></p>
+          <button style="width: 100%" class="ld-but" (click)="adopted(false)">Отклонить</button>
+          <p></p>
+        </div>
+      </div>
+
+
+      <div *ngIf="orders.done && !orders.doneCrate" [hidden]="!isUserCre()">
+        <button style="width: 100%" class="ld-but" (click)="creComplete(1)">Подтвердить выполнение</button>
+      </div>
       <p></p>
-      <button style="width: 100%" class="ld-but" (click)="exComplete()">Отметить как выполненное
-      </button>
+      <div *ngIf="orders.done && !orders.doneCrate" [hidden]="!isUserCre()">
+        <button style="width: 100%" class="ld-but" (click)="creComplete(0)">Опровергнуть выполнение</button>
+      </div>
+      <p></p>
+      <div [hidden]="!isUserCre()">
+        <button style="width: 100%" class="ld-but" (click)="del()">удалить</button>
+      </div>
     </div>
-    <p></p>
-
-    <div *ngIf="orders.done && !orders.doneCrate" [hidden]="!isUserCre()">
-      <button style="width: 100%" class="ld-but" (click)="creComplete(1)">Подтвердить выполнение</button>
-    </div>
-    <p></p>
-    <div *ngIf="orders.done && !orders.doneCrate" [hidden]="!isUserCre()">
-      <button style="width: 100%" class="ld-but" (click)="creComplete(0)">Опровергнуть выполнение</button>
-    </div>
-    <p></p>
-    <div [hidden]="!isUserCre()">
-      <button style="width: 100%" class="ld-but" (click)="del()">удалить</button>
-    </div>
+  </div>
+  <div align="center" *ngIf="orders.rejected">
+    <h1 class="alert alert-info">ОТКЛОНЁН</h1>
   </div>
 </div>
 

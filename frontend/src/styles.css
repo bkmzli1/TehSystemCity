@@ -1,5 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
-.text_padding{
-  padding: 10px 10px 30px 10px
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url('ttf/Roboto-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Regular';
+  src: url('ttf/Roboto-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Medium';
+  src: url('ttf/Roboto-Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "Roboto Regular", serif;
+
+}
+
+div {
+  font-family: "Roboto Regular", serif;
+
+}
+
+h1 {
+  font-family: "Roboto Regular", serif;
+
+}
+
+h3 {
+  font-family: "Roboto Regular", serif;
+}
+
+p {
+  font-family: "Roboto Regular", serif;
+
+}
+
+td {
+  font-family: "Roboto Regular", serif;
+
+}
+
+.input-group-text {
+  font-family: "Roboto Regular", serif;
+
+}
+
+label {
+  font-family: "Roboto Regular", serif;
+
+}
+
+span {
+  font-family: "Roboto Regular", serif;
+
+
+}
+
+select {
+  font-family: "Roboto Regular", serif;
+
+}
+
+
+a {
+  font-family: "Roboto Regular", serif;
+
+}
+
+option {
+  font-family: "Roboto Regular", serif;
+
+}
+
+input {
+  font-family: "Roboto Regular", serif;
+
+}
+
+.navbar-brand {
+  font-family: "Roboto Regular", serif;
+
+}
+
+.text_padding {
+  padding: 10px 10px 30px 10px;
+
 }
 

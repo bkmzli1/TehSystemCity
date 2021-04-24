@@ -41,7 +41,7 @@ public class User implements UserDetails {
     private boolean isAccountNonExpired;
     @JsonView(Views.UserAll.class)
     private boolean isAccountNonLocked;
-    @JsonView(Views.UserAll.class)
+    @JsonView(Views.UserBasic.class)
     private boolean isEnabled;
     @JsonView(Views.UserAll.class)
     private boolean isCredentialsNonExpired;

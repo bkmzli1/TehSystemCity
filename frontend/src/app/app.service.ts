@@ -46,6 +46,7 @@ export class AppService {
   constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) {
 
     http.get(this.serverURL + 'usersss').subscribe((next: Login) => {
+      // tslint:disable-next-line:triple-equals
       if (next != undefined || next != null) {
         this.authenticated = true;
         this.login = next;
