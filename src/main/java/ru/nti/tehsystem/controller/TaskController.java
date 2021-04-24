@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import  ru.nti.tehsystem.domain.*;
-import  ru.nti.tehsystem.model.TaskCreate;
-import  ru.nti.tehsystem.repo.TaskRepo;
-import  ru.nti.tehsystem.repo.UserRepo;
-import  ru.nti.tehsystem.services.impl.TaskService;
+import ru.nti.tehsystem.domain.*;
+import ru.nti.tehsystem.model.TaskCreate;
+import ru.nti.tehsystem.repo.TaskRepo;
+import ru.nti.tehsystem.repo.UserRepo;
+import ru.nti.tehsystem.services.impl.TaskService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +38,7 @@ public class TaskController {
         this.taskRepo = taskRepo;
         this.userRepo = userRepo;
     }
+
     @JsonView(Views.TaskAll.class)
     @PostMapping("/create")
     @ResponseBody
@@ -58,6 +59,7 @@ public class TaskController {
         }
 
     }
+
     @JsonView(Views.TaskAll.class)
     @PostMapping("/bin/ex/{id}")
     @ResponseBody
@@ -71,6 +73,7 @@ public class TaskController {
         user.getAuthorities().forEach(roles -> b.set(roles.getAuthority().equals("ADMIN")));
         return b.get();
     }
+
     @JsonView(Views.TaskAll.class)
     @GetMapping("/tasks")
     @ResponseBody
@@ -87,7 +90,7 @@ public class TaskController {
 
         AtomicBoolean root = new AtomicBoolean(false);
         user.getAuthorities().stream().filter(roles -> roles.getAuthority().equals("ADMIN"))
-            .forEach(roles -> root.set(true));
+                .forEach(roles -> root.set(true));
         if (root.get()) {
             Set<Task> tasks = new TreeSet<>(Comparator.comparing(Task::getCrate).reversed());
             tasks.addAll(taskRepo.findAll());
@@ -100,7 +103,7 @@ public class TaskController {
             taskList.addAll(taskRepo.findByExecutor(user));
             AtomicBoolean Ex = new AtomicBoolean(false);
             user.getAuthorities().stream().filter(roles -> roles.getAuthority().equals("EXECUTOR"))
-                .forEach(roles -> Ex.set(true));
+                    .forEach(roles -> Ex.set(true));
             if (Ex.get())
                 taskList.addAll(taskRepo.findByExecutor(userAllEx));
             Set<Task> tasks = new TreeSet<>(Comparator.comparing(Task::getCrate).reversed());
@@ -110,6 +113,7 @@ public class TaskController {
             return tasks;
         }
     }
+
     @JsonView(Views.TaskAll.class)
     @PostMapping("/tasks")
     @ResponseBody
@@ -117,6 +121,7 @@ public class TaskController {
         Thread.sleep(5000);
         return tasks(authentication);
     }
+
     @JsonView(Views.TaskBasic.class)
     @GetMapping("/tasking")
     @ResponseBody
@@ -132,7 +137,7 @@ public class TaskController {
 
         AtomicBoolean root = new AtomicBoolean(false);
         user.getAuthorities().stream().filter(roles -> roles.getAuthority().equals("ADMIN"))
-            .forEach(roles -> root.set(true));
+                .forEach(roles -> root.set(true));
         if (root.get()) {
             Set<Task> tasks = new TreeSet<>(Comparator.comparing(Task::getCrate));
             tasks.addAll(taskRepo.findAll());
@@ -144,7 +149,7 @@ public class TaskController {
             taskList.addAll(taskRepo.findByExecutor(user));
             AtomicBoolean Ex = new AtomicBoolean(false);
             user.getAuthorities().stream().filter(roles -> roles.getAuthority().equals("EXECUTOR"))
-                .forEach(roles -> Ex.set(true));
+                    .forEach(roles -> Ex.set(true));
             if (Ex.get())
                 taskList.addAll(taskRepo.findByExecutor(userAllEx));
             Set<Task> tasks = new TreeSet<>(Comparator.comparing(Task::getCrate));
@@ -155,6 +160,7 @@ public class TaskController {
             return tasks;
         }
     }
+
     @JsonView(Views.TaskBasic.class)
     @GetMapping("/tasks/my")
     @ResponseBody
@@ -177,44 +183,69 @@ public class TaskController {
         task.setMassages(projects);
         return task;
     }
+
     @JsonView(Views.TaskUpdate.class)
     @PostMapping("/get/{id}")
     @ResponseBody
     public Task taskUpload(@PathVariable String id) throws InterruptedException {
-        System.out.println("sleep");
         Thread.sleep(5000);
         Task task = taskRepo.findById(id).get();
         Set<Massages> projects = new TreeSet<>(Comparator.comparing(Massages::getDateTime));
         projects.addAll(task.getMassages());
         task.setMassages(projects);
-        System.out.println("sleepOut");
+
         return task;
     }
+
     @JsonView(Views.TaskAll.class)
     @GetMapping("/bin/{id}")
     @ResponseBody
     public Task taskBin(Authentication authentication, @PathVariable String id) {
         User user = userRepo.findUserById(((User) authentication.getPrincipal()).getId());
         Task task = taskRepo.findById(id).get();
+        Set<Massages> projects = new TreeSet<>(Comparator.comparing(Massages::getDateTime));
+        projects.addAll(task.getMassages());
+        task.setMassages(projects);
         return this.taskService.taskFin(task, user);
     }
+
     @JsonView(Views.TaskAll.class)
     @PostMapping("/binCrate/{id}")
     @ResponseBody
     public Task taskBinCrate(Authentication authentication, @PathVariable String id, @RequestBody boolean fin) {
         User user = (User) authentication.getPrincipal();
         Task task = taskRepo.findById(id).get();
+        Set<Massages> projects = new TreeSet<>(Comparator.comparing(Massages::getDateTime));
+        projects.addAll(task.getMassages());
+        task.setMassages(projects);
         return this.taskService.taskFinCrate(task, user, fin);
     }
+
     @JsonView(Views.TaskAll.class)
     @DeleteMapping("/delete/{id}")
     @ResponseBody
     public Task taskDelete(Authentication authentication, @PathVariable String id) {
         //        User user = (User) authentication.getPrincipal();
         Task task = taskRepo.findById(id).get();
+        Set<Massages> projects = new TreeSet<>(Comparator.comparing(Massages::getDateTime));
+        projects.addAll(task.getMassages());
+        task.setMassages(projects);
         return this.taskService.taskDelete(task, new User());
     }
 
+    @JsonView(Views.TaskAll.class)
+    @PutMapping("/adopted/{id}")
+    @ResponseBody
+    public Task taskAdopted(Authentication authentication, @PathVariable String id, @RequestBody boolean fin) {
+        //        User user = (User) authentication.getPrincipal();
+        Task task = taskRepo.findById(id).get();
+        if (fin)
+            task.setAdopted(true);
+        else
+            task.setRejected(true);
+        taskRepo.save(task);
+        return task;
+    }
 
     @GetMapping("/download/{id}")
     public void concatenationFiles(@PathVariable(value = "id") String id, HttpServletResponse response) {
@@ -226,7 +257,7 @@ public class TaskController {
         a.mkdirs();
         doZip(downloadList, archiveName);
         response.setContentType(archiveName);
-    ;
+        ;
         Transliterator toLatinTrans = Transliterator.getInstance("Cyrillic-Latin");
         String result = toLatinTrans.transliterate((taskRepo.findById(id).get().getName() + ".zip").replace(" ", "_"));
         response.setHeader("Content-Transfer-Encoding", "binary");

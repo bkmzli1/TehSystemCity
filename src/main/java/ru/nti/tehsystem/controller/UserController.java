@@ -65,7 +65,7 @@ public class UserController {
         return strings;
     }
 
-    @GetMapping
+
     @JsonView(Views.UserBasic.class)
     @RequestMapping("/user")
     public User user(Authentication authentication) {
@@ -81,10 +81,16 @@ public class UserController {
     @JsonView(Views.UserAll.class)
     @GetMapping("/user/{id}")
     @ResponseBody
-    public User userID(@PathVariable String id) {
-        User user = userRepository.findOneById(id);
-        user.getNotifications().removeIf(Notifications::isClose);
-        return user;
+    public Object userID(@PathVariable String id) throws InterruptedException {
+        try {
+            User user = userRepository.findOneById(id);
+            user.getNotifications().removeIf(Notifications::isClose);
+            return user;
+        }catch (NullPointerException e){
+            Thread.sleep(1000);
+           return null;
+        }
+
     }
     @JsonView(Views.UserAll.class)
     @PostMapping("/save")

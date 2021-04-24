@@ -15,5 +15,6 @@
 /build/resources/
 /build/tmp/
 
-
-
+/externalResources/img
+/externalResources/nsti
+/externalResources/temp

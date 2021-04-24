@@ -13,6 +13,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import ru.nti.tehsystem.services.impl.UserService;
 
+import java.io.*;
+import java.net.URL;
+import java.security.CodeSource;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -56,6 +65,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //            .permitAll().and().csrf().disable().httpBasic();
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        loadTemplates(http);
+
+
 //             http.authorizeRequests()
 //                     .antMatchers("/templates/**", "/static/**", "/registration", "/login", "/user").permitAll()
 //                    .antMatchers("/**","/ordersCreate").authenticated()
@@ -66,6 +78,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .and()
 //                    .formLogin()
 //                    .loginPage("/login")
+//                     .defaultSuccessUrl("/ordersCreate")
 //                    .permitAll()
 //                    .and()
 //                    .logout()
@@ -73,12 +86,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
         http.authorizeRequests()
-                .antMatchers("/templates/**", "/**", "/static/**", "/registration").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/ordersCreate")
                 .permitAll()
                 .and()
                 .logout()
@@ -86,5 +100,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().httpBasic();
 
     }
+
+    private void loadTemplates(HttpSecurity http) throws Exception {
+        CodeSource src = WebSecurityConfig.class.getProtectionDomain().getCodeSource();
+        if (src != null) {
+            URL jar = src.getLocation();
+            ZipInputStream zip = new ZipInputStream(jar.openStream());
+            while (true) {
+                ZipEntry e = zip.getNextEntry();
+                if (e == null)
+                    break;
+                String name = e.getName();
+
+                if (name.startsWith("BOOT-INF/classes/templates/")) {
+                    System.out.println(name.replace("BOOT-INF/classes/templates", ""));
+                    http.authorizeRequests().antMatchers("" + name.replace("BOOT-INF/classes/templates", "")).permitAll();
+                }
+            }
+        }
+    }
+
 
 }

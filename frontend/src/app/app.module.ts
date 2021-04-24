@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'ordering', component: OrderingComponent},
   {path: 'regedit', component: RegeditComponent},
   {path: 'useredit/:id', component: UserEditComponent},
+  {path: '**', component: UserEditComponent}
 
 ];
 
@@ -45,6 +46,7 @@ import {OrderingComponent} from './ordering/ordering.component';
 import {PhoneMaskDirective} from './create-user/phone-mask.directive';
 import {RegeditComponent} from './regedit/regedit.component';
 import {UserEditComponent} from './user-edit/user-edit.component';
+import { NotFoundeComponent } from './not-founde/not-founde.component';
 
 
 @Injectable()
@@ -77,7 +79,8 @@ export class HttpXsrfInterceptor implements HttpInterceptor {
     OrderingComponent,
     PhoneMaskDirective,
     RegeditComponent,
-    UserEditComponent
+    UserEditComponent,
+    NotFoundeComponent
   ], exports: [
     PhoneMaskDirective
   ],

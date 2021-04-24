@@ -1,11 +1,33 @@
 <section class="u-align-center u-clearfix u-section-1" id="carousel_cce9">
-  <div [style.backgroundImage]="'url('+app.serverURL+login.imgFon.img+')'"
-       class="u-container-style u-expanded-width u-group u-image u-shape-rectangle u-image-1" data-image-width="1280"
-       data-image-height="853">
-    <div class="u-container-layout u-container-layout-1"></div>
+  <!--  <div [style.backgroundImage]="'url('+app.serverURL+login.imgFon.img+')'"-->
+  <!--       class="u-container-style u-expanded-width u-group u-image u-shape-rectangle u-image-1" data-image-width="1280"-->
+  <!--       data-image-height="853">-->
+  <!--    <div class="u-container-layout u-container-layout-1"></div>-->
+  <!--  </div>-->
+  <!--  <div alt="" [style.backgroundImage]="'url('+app.serverURL+login.img.img+')'"-->
+  <!--       class="u-image u-image-circle u-image-2"></div>-->
+
+  <div style="width: 100%; background: linear-gradient(225deg, rgb(0,85,187), rgb(0,187,238));">
+    <div class="row">
+      <div class="col">
+        <div class="tab-left">
+          <img [src]="app.serverURL +'static/logo/logo6.png'">
+        </div>
+      </div>
+      <div class="col">
+        <div >
+          <img style="width: 300px;height: 300px" [src]="app.serverURL +'static/logo/gerb.png'">
+        </div>
+      </div>
+      <div class="col">
+
+        <div class="tab-right" style="float: right;">
+          <img style="width: 300px;height: 300px" [src]="app.serverURL +'static/logo/logo8.png'">
+        </div>
+      </div>
+    </div>
   </div>
-  <div alt="" [style.backgroundImage]="'url('+app.serverURL+login.img.img+')'"
-       class="u-image u-image-circle u-image-2"></div>
+
 </section>
 <div class="container">
 
@@ -22,7 +44,6 @@
           </div>
         </div>
         <div>
-
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text"> ФИО</span>
@@ -109,10 +130,10 @@
       </div>
 
     </div>
-    <div class="col">
+    <div class="col" *ngIf="login.id == app.login.id">
       <div class="container mt-3 ">
         <h3 align="center">Уведомления</h3>
-        <div class="alert alert-primary" role="alert"*ngFor="let item of login.notifications">
+        <div class="alert alert-primary" role="alert" *ngFor="let item of login.notifications">
           <a (click)="close(item.id)"
              class="cliseX">x</a>
           <div class="row">

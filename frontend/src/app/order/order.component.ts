@@ -43,6 +43,9 @@ class Orders {
   id = ' ';
   massages: Massages[] = [];
   crate: string;
+  deletes;
+  adopted = false;
+  rejected = false;
 }
 
 @Component({
@@ -68,7 +71,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
 
 
-  uploadMessage() {
+  uploadMessage(): any {
 
     if (this.uploader == null) {
 
@@ -83,8 +86,14 @@ export class OrderComponent implements OnInit, OnDestroy {
       }, error => this.uploadMessage());
 
     } else {
-      this.http.post(this.app.serverURL + 'task/get/' + this.id, true).subscribe((next: any) => {
-        this.orders = next;
+      this.http.post(this.app.serverURL + 'task/get/' + this.id, true).subscribe((next: Orders) => {
+        console.log(next);
+        this.orders.massages = next.massages;
+        this.orders.done = next.done;
+        this.orders.deletes = next.deletes;
+        this.orders.adopted = next.adopted;
+        this.orders.rejected = next.rejected;
+        this.uploadMessage();
       }, error => this.uploadMessage());
 
     }
@@ -180,6 +189,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
 
   creComplete(b: number) {
+
     this.http.post(this.app.serverURL + 'task/binCrate/' + this.orders.id, b).subscribe((next: any) => {
       this.orders = next;
     });
@@ -198,5 +208,36 @@ export class OrderComponent implements OnInit, OnDestroy {
       this.orders = next;
       this.router.navigateByUrl('/ordersCreate');
     });
+  }
+
+  ims() {
+    return this.orders.imgs != undefined;
+  }
+
+  adopted(b: any) {
+    if (b) {
+      b = 1;
+    } else {
+      b = 0;
+    }
+    this.http.put(this.app.serverURL + 'task/adopted/' + this.orders.id, b).subscribe((next: any) => {
+      this.orders = next;
+    });
+  }
+
+  con(b: any) {
+    console.log(b);
+  }
+
+  texstDone() {
+    if (this.orders.rejected == true) {
+      return 'В процессе';
+    } else if (this.orders.done == true) {
+      return 'Статус: Выполнено' + this.orders.executed;
+    } else if (this.orders.done == false) {
+      return 'Статус: Не выполнено';
+    }
+
+    return 'eroor';
   }
 }
