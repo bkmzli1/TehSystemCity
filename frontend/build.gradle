@@ -9,14 +9,14 @@ version '0.0.1'
 
 node {
     version = '16.0.0'
-    npmVersion = '7.11.0'
+    npmVersion = '7.11.1'
     download = true
     workDir = file("${project.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
 }
 
 task build(type: NpmTask) {
-  args = ['run', 'build']
+  args = ['run', 'upload']
 }
 
 build.dependsOn(npm_install)
