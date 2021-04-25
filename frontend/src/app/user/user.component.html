@@ -1,34 +1,34 @@
-<section class="u-align-center u-clearfix u-section-1" id="carousel_cce9">
-  <!--  <div [style.backgroundImage]="'url('+app.serverURL+login.imgFon.img+')'"-->
-  <!--       class="u-container-style u-expanded-width u-group u-image u-shape-rectangle u-image-1" data-image-width="1280"-->
-  <!--       data-image-height="853">-->
-  <!--    <div class="u-container-layout u-container-layout-1"></div>-->
-  <!--  </div>-->
-  <!--  <div alt="" [style.backgroundImage]="'url('+app.serverURL+login.img.img+')'"-->
-  <!--       class="u-image u-image-circle u-image-2"></div>-->
+<!--  <div [style.backgroundImage]="'url('+app.serverURL+login.imgFon.img+')'"-->
+<!--       class="u-container-style u-expanded-width u-group u-image u-shape-rectangle u-image-1" data-image-width="1280"-->
+<!--       data-image-height="853">-->
+<!--    <div class="u-container-layout u-container-layout-1"></div>-->
+<!--  </div>-->
+<!--  <div alt="" [style.backgroundImage]="'url('+app.serverURL+login.img.img+')'"-->
+<!--       class="u-image u-image-circle u-image-2"></div>-->
 
-  <div style="width: 100%; background: linear-gradient(225deg, rgb(0,85,187), rgb(0,187,238));">
-    <div class="row">
-      <div class="col">
-        <div class="tab-left">
-          <img [src]="app.serverURL +'static/logo/logo6.png'">
-        </div>
+<div
+  style="width: 100%; height: 100%;min-height: 220px ; background: linear-gradient(225deg, rgb(0,85,187), rgb(0,187,238)); max-height: 500px;   -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;">
+  <div style=" ">
+    <div class="row" style="width: 100%; height: 100%; max-height: 500px;">
+      <div class="col" style="width: 100%;max-height: 500px">
+        <img class="rounded mx-auto d-block" style="max-height: 500px;min-height: 220px ;"
+             [src]="app.serverURL +'static/logo/logo6.png'">
       </div>
-      <div class="col">
-        <div >
-          <img style="width: 300px;height: 300px" [src]="app.serverURL +'static/logo/gerb.png'">
-        </div>
+      <div class="col" style="width: 100%;max-height: 500px; ">
+        <img class="rounded mx-auto d-block"
+             style="max-height: 500px;min-height: 220px ;"
+             [src]="app.serverURL +'static/logo/gerb.png'">
       </div>
-      <div class="col">
-
-        <div class="tab-right" style="float: right;">
-          <img style="width: 300px;height: 300px" [src]="app.serverURL +'static/logo/logo8.png'">
-        </div>
+      <div class="col" style="width: 100%;max-height: 500px">
+        <img class="rounded mx-auto d-block" style="max-height: 500px;min-height: 220px ;"
+             [src]="app.serverURL +'static/logo/logo8.png'">
       </div>
     </div>
   </div>
-
-</section>
+</div>
 <div class="container">
 
   <div class="row">
@@ -133,18 +133,32 @@
     <div class="col" *ngIf="login.id == app.login.id">
       <div class="container mt-3 ">
         <h3 align="center">Уведомления</h3>
-        <div class="alert alert-primary" role="alert" *ngFor="let item of login.notifications">
+        <div class="alert " [ngClass]="{'alert-secondary':mass(item,'MASSAGES'),'alert-primary':mass(item,'TASK')}"
+             role="alert" *ngFor="let item of login.notifications">
           <a (click)="close(item.id)"
              class="cliseX">x</a>
           <div class="row">
-            <div class="col">
+
+            <div *ngIf="mass(item,'TASK')">
               {{item.taskId.creator.lastName}} {{item.taskId.creator.firstName}} {{item.taskId.creator.middleName}}
+            </div>
+            <div *ngIf="mass(item,'MASSAGES')">
+              {{item.massages.user.lastName}} {{item.massages.user.firstName}} {{item.massages.user.middleName}}
+
             </div>
             <div style="text-align: right" class="col">
               {{item.data}}
             </div>
           </div>
-          Создано для вас задание. Название "{{item.taskId.name}}"
+          <p></p>
+          <div *ngIf="mass(item,'TASK')">
+            Создано для вас задание. Название "{{item.taskId.name}}"
+          </div>
+          <div *ngIf="mass(item,'MASSAGES')">
+            Для вас сообщение в задаче: "{{item.taskId.name}}"
+            <p>{{item.text}}</p>
+          </div>
+
         </div>
       </div>
     </div>

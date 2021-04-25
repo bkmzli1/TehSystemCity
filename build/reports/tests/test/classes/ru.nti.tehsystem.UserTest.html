@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.304s</div>
+<div class="counter">0.434s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">UserRepoTest()</td>
-<td class="success">0.007s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">UserServiceTest()</td>
-<td class="success">0.003s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">userCrateEditDelete()</td>
-<td class="success">0.294s</td>
+<td class="success">0.421s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -97,12 +97,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2021-04-24 13:04:49.755  INFO 13664 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [ru.nti.tehsystem.UserTest], using SpringBootContextLoader
-2021-04-24 13:04:49.756  INFO 13664 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [ru.nti.tehsystem.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2021-04-24 13:04:49.756  INFO 13664 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [ru.nti.tehsystem.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2021-04-24 13:04:49.768  INFO 13664 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration ru.nti.tehsystem.TehsystemApplication for test class ru.nti.tehsystem.UserTest
-2021-04-24 13:04:49.771  INFO 13664 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2021-04-24 13:04:49.772  INFO 13664 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4184b0fd, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3f370cd1, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4633e8d0, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2b79ae85, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4f1ef04f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@48482cf9, org.springframework.test.context.transaction.TransactionalTestExecutionListener@11e43848, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@770fa177, org.springframework.test.context.event.EventPublishingTestExecutionListener@4f2bbb51, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@460d69a9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@769b2f58, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7c953ce5, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6ef6f115, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@431b8d43, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6c558b97]
+<pre>2021-04-24 13:24:49.928  INFO 18744 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [ru.nti.tehsystem.UserTest], using SpringBootContextLoader
+2021-04-24 13:24:49.929  INFO 18744 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [ru.nti.tehsystem.UserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-04-24 13:24:49.931  INFO 18744 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [ru.nti.tehsystem.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-04-24 13:24:49.948  INFO 18744 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration ru.nti.tehsystem.TehsystemApplication for test class ru.nti.tehsystem.UserTest
+2021-04-24 13:24:49.951  INFO 18744 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-04-24 13:24:49.952  INFO 18744 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4729ad5, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@14a3460, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3f5c4e14, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@624974ad, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@72fdee03, org.springframework.test.context.support.DirtiesContextTestExecutionListener@22443d08, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7fb5fbba, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@567014fd, org.springframework.test.context.event.EventPublishingTestExecutionListener@4b6075c6, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@48cfaddf, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@18f7e757, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4e76cf48, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6f04d05, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3364b951, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@140e2d35]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -112,24 +112,24 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.4.5)
 
-2021-04-24 13:04:49.813  INFO 13664 --- [    Test worker] ru.nti.tehsystem.UserTest                : Starting UserTest using Java 1.8.0_282 on Bkmz with PID 13664 (started by 48562 in B:\TehSystemCity)
-2021-04-24 13:04:49.814  INFO 13664 --- [    Test worker] ru.nti.tehsystem.UserTest                : No active profile set, falling back to default profiles: default
-2021-04-24 13:04:50.124  INFO 13664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-24 13:04:50.163  INFO 13664 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 6 JPA repository interfaces.
-2021-04-24 13:04:50.289  INFO 13664 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@188d5306' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-24 13:04:50.300  INFO 13664 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-04-24 13:04:50.404  INFO 13664 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-24 13:04:50.411  INFO 13664 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2021-04-24 13:04:50.446  INFO 13664 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2021-04-24 13:04:50.447  INFO 13664 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-04-24 13:04:50.936  INFO 13664 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-24 13:04:50.936  INFO 13664 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-24 13:24:50.004  INFO 18744 --- [    Test worker] ru.nti.tehsystem.UserTest                : Starting UserTest using Java 1.8.0_282 on Bkmz with PID 18744 (started by 48562 in B:\TehSystemCity)
+2021-04-24 13:24:50.006  INFO 18744 --- [    Test worker] ru.nti.tehsystem.UserTest                : No active profile set, falling back to default profiles: default
+2021-04-24 13:24:50.397  INFO 18744 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-24 13:24:50.443  INFO 18744 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 6 JPA repository interfaces.
+2021-04-24 13:24:50.609  INFO 18744 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1350c79f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-24 13:24:50.621  INFO 18744 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-24 13:24:50.740  INFO 18744 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-24 13:24:50.748  INFO 18744 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-04-24 13:24:50.795  INFO 18744 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-04-24 13:24:50.795  INFO 18744 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-04-24 13:24:51.522  INFO 18744 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-24 13:24:51.522  INFO 18744 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 file:///B:/TehSystemCity/externalResources
-2021-04-24 13:04:51.795  INFO 13664 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@89b7bcc, org.springframework.security.web.context.SecurityContextPersistenceFilter@38ed3f54, org.springframework.security.web.header.HeaderWriterFilter@46290aa2, org.springframework.security.web.authentication.logout.LogoutFilter@8311eaf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6c92d43e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@50189dc7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@174d960b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@19bff25a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@582d62f2, org.springframework.security.web.session.SessionManagementFilter@176aec53, org.springframework.security.web.access.ExceptionTranslationFilter@e443963, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5750f6c3]
-2021-04-24 13:04:52.209  INFO 13664 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2021-04-24 13:04:52.209  INFO 13664 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2021-04-24 13:04:52.211  INFO 13664 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2021-04-24 13:04:52.225  INFO 13664 --- [    Test worker] ru.nti.tehsystem.UserTest                : Started UserTest in 2.449 seconds (JVM running for 11.51)
+2021-04-24 13:24:52.994  INFO 18744 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@60735a09, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ac52dff, org.springframework.security.web.header.HeaderWriterFilter@4e5df28c, org.springframework.security.web.authentication.logout.LogoutFilter@3a181119, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7bd9b7a4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1a743206, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78cb7adf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59233ed8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72877790, org.springframework.security.web.session.SessionManagementFilter@30101c57, org.springframework.security.web.access.ExceptionTranslationFilter@4f29b4ac, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5458c7d0]
+2021-04-24 13:24:53.503  INFO 18744 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-04-24 13:24:53.504  INFO 18744 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-04-24 13:24:53.505  INFO 18744 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-04-24 13:24:53.521  INFO 18744 --- [    Test worker] ru.nti.tehsystem.UserTest                : Started UserTest in 3.564 seconds (JVM running for 15.039)
 </pre>
 </span>
 </div>
@@ -141,7 +141,7 @@ file:///B:/TehSystemCity/externalResources
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 24.04.2021 13:04:52</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 24.04.2021 13:24:54</p>
 </div>
 </div>
 </body>

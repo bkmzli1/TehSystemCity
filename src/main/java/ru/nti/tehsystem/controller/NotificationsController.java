@@ -43,10 +43,10 @@ public class NotificationsController {
 
     }
 
-    @GetMapping("/get")
+    @GetMapping("/get/{time}")
     @ResponseBody
     @JsonView({Views.UserBasic.class})
-    public Object notification(Authentication authentication) throws InterruptedException {
+    public Object notification(Authentication authentication, @PathVariable String time) throws InterruptedException {
         try {
             User user = userRepo.findUserById(((User) authentication.getPrincipal()).getId());
 
@@ -54,10 +54,10 @@ public class NotificationsController {
             notifications.addAll(user.getNotifications());
 
             notifications.removeIf(Notifications::isClose);
-            Thread.sleep(1000);
+            Thread.sleep(Long.parseLong(time));
             return notifications;
         } catch (NullPointerException nullPointerException) {
-            Thread.sleep(1000);
+            Thread.sleep(Long.parseLong(time));
             return null;
         }
 

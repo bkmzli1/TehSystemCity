@@ -141,7 +141,7 @@ public class TaskController {
         if (root.get()) {
             Set<Task> tasks = new TreeSet<>(Comparator.comparing(Task::getCrate));
             tasks.addAll(taskRepo.findAll());
-
+            tasks.removeIf(Task::isDeletes);
             tasks.removeIf(task -> !task.isDoneCrate());
             return tasks;
         } else {
@@ -168,6 +168,7 @@ public class TaskController {
         User user = userRepo.findUserById(((User) authentication.getPrincipal()).getId());
         List<Task> taskList = new ArrayList<>(taskRepo.findByCreator(user));
         Set<Task> tasks = new TreeSet<>(Comparator.comparing(Task::getCrate));
+
         tasks.addAll(taskList);
         return tasks;
 

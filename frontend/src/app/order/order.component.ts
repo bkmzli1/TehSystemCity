@@ -82,6 +82,15 @@ export class OrderComponent implements OnInit, OnDestroy {
       this.http.get(this.app.serverURL + 'task/get/' + this.id).subscribe((next: any) => {
         this.orders = next;
         this.uploader = true;
+        this.http.post(this.app.serverURL + 'task/get/' + this.id, true).subscribe((next2: Orders) => {
+          console.log(next2);
+          this.orders.massages = next2.massages;
+          this.orders.done = next2.done;
+          this.orders.deletes = next2.deletes;
+          this.orders.adopted = next2.adopted;
+          this.orders.rejected = next2.rejected;
+          this.uploadMessage();
+        }, error => this.uploadMessage());
         this.uploadMessage();
       }, error => this.uploadMessage());
 
@@ -226,7 +235,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
 
   con(b: any) {
-    console.log(b);
+
   }
 
   texstDone() {

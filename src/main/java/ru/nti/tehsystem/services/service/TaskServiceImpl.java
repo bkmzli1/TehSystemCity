@@ -9,6 +9,7 @@ import ru.nti.tehsystem.domain.Notifications;
 import ru.nti.tehsystem.domain.Task;
 import ru.nti.tehsystem.domain.User;
 import ru.nti.tehsystem.domain.enums.Level;
+import ru.nti.tehsystem.domain.enums.NotificationType;
 import ru.nti.tehsystem.model.TaskCreate;
 import ru.nti.tehsystem.repo.ImgRepo;
 import ru.nti.tehsystem.repo.NotificationsRepo;
@@ -64,19 +65,27 @@ public class TaskServiceImpl implements TaskService {
         task.setDeletes(false);
         taskRepo.save(task);
         for (User userNot : task.getExecutor()) {
+            if (user.getId().equals(userNot.getId())) {
+                System.out.println(user.getId());
+                continue;
+            }
             Notifications notifications = new Notifications();
             notifications.setTaskId(task);
             notifications.setLevel(task.getLevel());
             notifications.setText("Создано для вас задание.\nНазвание \"" + task.getName() + "\"");
             notifications.setData(LocalDateTime.now());
+            notifications.setNotificationType(NotificationType.TASK);
             try {
-                userNot.getNotifications().add(notifications);
+                Set<Notifications> notifications1 = userNot.getNotifications();
+                notifications1 .add(notifications);
+                userNot.setNotifications(notifications1);
                 notificationsRepo.save(notifications);
                 userRepo.save(userNot);
             } catch (Exception e) {
                 userNot.setNotifications(new HashSet<Notifications>());
                 Set<Notifications> notificationsAdd = userNot.getNotifications();
                 notificationsAdd.add(notifications);
+                userNot.setNotifications(notificationsAdd);
                 notificationsRepo.save(notifications);
                 userRepo.save(userNot);
             }
