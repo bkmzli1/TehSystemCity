@@ -36,7 +36,7 @@ repositories {
     mavenCentral()
 }
 //processResources.dependsOn('frontend:build')
-//processResources.dependsOn('frontend:updataall','frontend:updataallow','frontend:istall','frontend:build')
+processResources.dependsOn('frontend:updataall','frontend:updataallow','frontend:istall','frontend:build')
 
 
 dependencies {
