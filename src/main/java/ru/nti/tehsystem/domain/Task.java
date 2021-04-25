@@ -50,7 +50,8 @@ public class Task {
     private User performed;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 
-    @JsonView(Views.TaskUpdate.class)
+    @JsonView(Views.MassagesBasic.class)
+    @JsonIdentityInfo(generator=ObjectIdGenerators.StringIdGenerator.class, property="@massages")
     private Set<Massages> massages;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
@@ -127,8 +128,6 @@ public class Task {
     }
 
     public void setMassages(Set<Massages> massages) {
-
-
         this.massages = massages;
     }
 

@@ -35,7 +35,10 @@ jar {
 repositories {
     mavenCentral()
 }
-processResources.dependsOn('frontend:build')
+//processResources.dependsOn('frontend:build')
+processResources.dependsOn('frontend:updataall','frontend:updataallow','frontend:istall','frontend:build')
+
+
 dependencies {
     /// SPRING BOOT
     implementation 'org.springframework.boot:spring-boot-starter'

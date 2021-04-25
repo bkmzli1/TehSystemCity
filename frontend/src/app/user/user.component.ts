@@ -25,6 +25,16 @@ class Notifications {
   level: string;
   taskId: Orders;
   data: string;
+  massages: Massages;
+  notificationType: string;
+
+}
+
+class Massages {
+  user: Login;
+  imgs: Img[];
+  text = ' ';
+
 
 }
 
@@ -69,7 +79,7 @@ export class UserComponent implements OnInit, OnDestroy {
     this.uploader = false;
     this.uplod();
     this.appc.cont = false;
-    console.log(this.login.id == app.login.id);
+
   }
 
   uplod(): any {
@@ -81,21 +91,26 @@ export class UserComponent implements OnInit, OnDestroy {
     if (!this.uploader) {
 
       this.http.get(this.app.serverURL + 'user/' + this.id).subscribe((next: Login) => {
-        console.log(next);
         this.login = next;
+        this.opNot(0);
         this.uploader = true;
+
         this.uplod();
       }, error => this.uplod());
 
     } else {
-      this.http.get(this.app.serverURL + 'notifications/get').subscribe((next: Notifications[]) => {
-        console.log(next);
-        this.login.notifications = next;
-        this.uplod();
-      }, error => this.uplod());
+      this.opNot(1000);
 
     }
 
+  }
+
+  opNot(s: number) {
+    this.http.get(this.app.serverURL + 'notifications/get/' + s).subscribe((next: Notifications[]) => {
+      this.login.notifications = next;
+
+      this.uplod();
+    }, error => this.uplod());
   }
 
 
@@ -118,12 +133,15 @@ export class UserComponent implements OnInit, OnDestroy {
 
   close(id: string) {
     this.http.delete(this.app.serverURL + 'notifications/' + id).subscribe((next: Notifications[]) => {
-      console.log(next);
       this.login.notifications = next;
     });
   }
 
   ngOnDestroy(): void {
     this.uploader = null;
+  }
+
+  mass(item: Notifications, massages: string) {
+    return item.notificationType == massages;
   }
 }

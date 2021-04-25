@@ -14,9 +14,19 @@ node {
     workDir = file("${project.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
 }
-
-task build(type: NpmTask) {
-  args = ['run', 'upload']
+task updataall(type: NpmTask) {
+  args = ['run', 'uploadnpm']
 }
+task updataallow(type: NpmTask) {
+  args = ['run', 'updataallow']
+}
+task istall(type: NpmTask) {
+  args = ['run', 'istall']
+}
+task build(type: NpmTask) {
+  args = ['run', 'build']
+}
+
+
 
 build.dependsOn(npm_install)

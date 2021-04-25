@@ -1,11 +1,9 @@
 package ru.nti.tehsystem.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.userdetails.UserDetails;
-import  ru.nti.tehsystem.domain.enums.Level;
+import ru.nti.tehsystem.domain.enums.Level;
 
 import javax.persistence.*;
 import java.util.Comparator;
@@ -18,16 +16,16 @@ import java.util.TreeSet;
 public class User implements UserDetails {
     @JsonView(Views.Id.class)
     private String id;
-    @JsonView(Views.UserBasic.class)
+    @JsonView(Views.NotificationsBasic.class)
     private String username;
     private String password;
     @JsonView(Views.UserAll.class)
     private String email;
-    @JsonView(Views.UserBasic.class)
+    @JsonView(Views.NotificationsBasic.class)
     private String firstName;
-    @JsonView(Views.UserBasic.class)
+    @JsonView(Views.NotificationsBasic.class)
     private String lastName;
-    @JsonView(Views.UserBasic.class)
+    @JsonView(Views.NotificationsBasic.class)
     private String middleName;
     @JsonView(Views.UserAll.class)
     private String telephone;
@@ -48,6 +46,7 @@ public class User implements UserDetails {
     @JsonView(Views.UserBasic.class)
     private Set<Roles> authorities;
     @JsonView(Views.UserAll.class)
+
     private Set<Notifications> notifications;
 
     public User() {
@@ -70,8 +69,8 @@ public class User implements UserDetails {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "users_roles",
-               joinColumns = @JoinColumn(name = "user_id"),
-               inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     @Override
     public Set<Roles> getAuthorities() {
         return this.authorities;
@@ -218,10 +217,17 @@ public class User implements UserDetails {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_notifications",
-               joinColumns = @JoinColumn(name = "user_id"),
-               inverseJoinColumns = @JoinColumn(name = "notifications_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "notifications_id", referencedColumnName = "id"))
 
     public Set<Notifications> getNotifications() {
+        Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData));
+        try {
+            notifications.addAll(this.notifications);
+        }catch (NullPointerException nullPointerException){
+
+        }
+
         return notifications;
     }
 

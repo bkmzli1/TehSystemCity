@@ -8,7 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "upload": "npm install -g npm@7.11.1"
+    "uploadnpm": "npm install -g npm@7.11.1",
+    "updataall": "npm update -all",
+    "updataallow": "npm update --allow-dirty",
+    "istall": "npm install"
   },
   "private": true,
   "dependencies": {
