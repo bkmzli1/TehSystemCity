@@ -27,7 +27,7 @@ public class UserTest extends Assertions {
     @Test
     public void UserRepoTest()
             throws Exception {
-        Assertions.assertNotNull(userRepo);
+
     }
 
     @Test
@@ -38,10 +38,12 @@ public class UserTest extends Assertions {
 
 
     @Test
-    public void userCrateEditDelete() {
-        crateUser();
-        editUser("123");
-        deleteUser();
+    public void user() {
+
+    }
+    @Test
+    public void Notification(){
+
     }
 
     private void crateUser(){

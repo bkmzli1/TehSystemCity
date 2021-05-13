@@ -60,7 +60,7 @@ public class InitialDataLoader implements ApplicationRunner {
             user.setFirstName("Илья");
             user.setLastName("Егорушкин");
             user.setMiddleName("Андреевич");
-            user.setEmail("-");
+            user.setEmail("ntiniaymifi@gmail.com");
             user.setUsername("root");
             user.setAdmin(true);
             this.userService.create(user);

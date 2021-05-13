@@ -9,5 +9,13 @@ class TehsystemApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+	@Test
+	public void mvs(){
+
+	}
+	@Test
+	public void application(){
+
+	}
 
 }
