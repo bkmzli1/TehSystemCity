@@ -39,9 +39,7 @@ public class UserTest extends Assertions {
 
     @Test
     public void user() {
-        crateUser();
-        editUser("123");
-        deleteUser();
+
     }
     @Test
     public void Notification(){
