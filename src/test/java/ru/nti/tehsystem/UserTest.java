@@ -27,7 +27,7 @@ public class UserTest extends Assertions {
     @Test
     public void UserRepoTest()
             throws Exception {
-        Assertions.assertNotNull(userRepo);
+
     }
 
     @Test
