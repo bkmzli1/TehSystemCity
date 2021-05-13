@@ -35,8 +35,8 @@ class Login {
 @Injectable()
 export class AppService {
   isAdmin = false;
-  serverURL2 = '';
-  serverURL = '//localhost/';
+  serverURL = '';
+  serverURL2 = '//localhost/';
   authenticated = false;
   login: Login = new Login();
 

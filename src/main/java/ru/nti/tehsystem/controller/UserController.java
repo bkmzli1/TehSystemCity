@@ -8,18 +8,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import  ru.nti.tehsystem.domain.Notifications;
-import  ru.nti.tehsystem.domain.User;
-import  ru.nti.tehsystem.domain.Views;
-import  ru.nti.tehsystem.model.UserEditBindingModel;
-import  ru.nti.tehsystem.model.UserRegisterBindingModel;
-import  ru.nti.tehsystem.repo.ImgRepo;
-import  ru.nti.tehsystem.repo.UserRepo;
-import  ru.nti.tehsystem.services.impl.UserService;
+import ru.nti.tehsystem.domain.Notifications;
+import ru.nti.tehsystem.domain.User;
+import ru.nti.tehsystem.domain.Views;
+import ru.nti.tehsystem.model.UserEditBindingModel;
+import ru.nti.tehsystem.model.UserRegisterBindingModel;
+import ru.nti.tehsystem.repo.EmailConfirmedRepo;
+import ru.nti.tehsystem.repo.ImgRepo;
+import ru.nti.tehsystem.repo.UserRepo;
+import ru.nti.tehsystem.services.impl.UserService;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.*;
 
@@ -31,15 +30,17 @@ public class UserController {
 
     private final UserRepo userRepository;
     private final ImgRepo imgRepository;
+    private final EmailConfirmedRepo emailConfirmedRepo;
     private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public UserController(UserService userService, UserRepo userRepository, ImgRepo imgRepository,
-                          ModelMapper modelMapper, BCryptPasswordEncoder bCryptPasswordEncoder) {
+                          EmailConfirmedRepo emailConfirmedRepo, ModelMapper modelMapper, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.imgRepository = imgRepository;
+        this.emailConfirmedRepo = emailConfirmedRepo;
         this.modelMapper = modelMapper;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -78,6 +79,7 @@ public class UserController {
         return null;
 
     }
+
     @JsonView(Views.UserAll.class)
     @GetMapping("/user/{id}")
     @ResponseBody
@@ -86,12 +88,13 @@ public class UserController {
             User user = userRepository.findOneById(id);
             user.getNotifications().removeIf(Notifications::isClose);
             return user;
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             Thread.sleep(1000);
-           return null;
+            return null;
         }
 
     }
+
     @JsonView(Views.UserAll.class)
     @PostMapping("/save")
     @ResponseBody
@@ -110,6 +113,7 @@ public class UserController {
         }
         return user;
     }
+
     @JsonView(Views.TaskAll.class)
     @GetMapping("/executor")
     public Set<User> userEx() {
@@ -118,16 +122,22 @@ public class UserController {
         users.addAll(userByRole);
         return users;
     }
+
     @JsonView(Views.TaskAll.class)
     @GetMapping("/usersss")
     public Object user(@AuthenticationPrincipal User user) {
         return user;
     }
+
     @JsonView(Views.UserBasic.class)
     @GetMapping("/allusers")
     public Object allUsers() {
         return userRepository.findAll();
     }
+
+
+
+
     @PostMapping("/edituserapi")
     public Object allUsers(@RequestBody @Valid UserEditBindingModel userEditBindingModel,
                            BindingResult bindingResult) {

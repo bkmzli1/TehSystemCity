@@ -3,17 +3,20 @@ package ru.nti.tehsystem.services.service;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.nti.tehsystem.domain.EmailConfirmed;
 import ru.nti.tehsystem.domain.Img;
 import ru.nti.tehsystem.domain.Roles;
 import ru.nti.tehsystem.domain.User;
 import ru.nti.tehsystem.model.RoleServiceModel;
 import ru.nti.tehsystem.model.UserEditBindingModel;
 import ru.nti.tehsystem.model.UserRegisterBindingModel;
+import ru.nti.tehsystem.repo.EmailConfirmedRepo;
 import ru.nti.tehsystem.repo.ImgRepo;
 import ru.nti.tehsystem.repo.UserRepo;
 import ru.nti.tehsystem.services.impl.RoleService;
@@ -21,6 +24,7 @@ import ru.nti.tehsystem.services.impl.UserService;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -30,15 +34,22 @@ public class UserServiceImpl implements UserService {
     private final ModelMapper modelMapper;
     private final RoleService roleService;
     private final ImgRepo imgRepository;
+    private final MailService mailService;
+    private final EmailConfirmedRepo emailConfirmedRepo;
+
+    @Value("${urlSever}")
+    private String urlSever;
 
     @Autowired
     public UserServiceImpl(UserRepo userRepository, BCryptPasswordEncoder bCryptPasswordEncoder,
-                           ModelMapper modelMapper, RoleService roleService, ImgRepo imgRepository) {
+                           ModelMapper modelMapper, RoleService roleService, ImgRepo imgRepository, MailService mailService, EmailConfirmedRepo emailConfirmedRepo) {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.modelMapper = modelMapper;
         this.roleService = roleService;
         this.imgRepository = imgRepository;
+        this.mailService = mailService;
+        this.emailConfirmedRepo = emailConfirmedRepo;
     }
 
     @Override
@@ -101,6 +112,16 @@ public class UserServiceImpl implements UserService {
 
         userEntity.setAuthorities(authorities);
         this.userRepository.save(userEntity);
+        if (!userServiceModel.getEmail().isEmpty() & !userServiceModel.getEmail().equals("-")) {
+            EmailConfirmed emailConfirmed = new EmailConfirmed();
+            emailConfirmed.setUser(userEntity);
+            emailConfirmedRepo.save(emailConfirmed);
+            if (emailConfirmed.getCode() == null) {
+                emailConfirmed.setCode(UUID.randomUUID().toString());
+                emailConfirmedRepo.save(emailConfirmed);
+            }
+            mailService.send(userEntity.getEmail(), "Activation code", "URL: http://" +urlSever+"/activate/" +emailConfirmed.getCode());
+        }
     }
 
     @Override

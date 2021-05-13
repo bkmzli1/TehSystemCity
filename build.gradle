@@ -35,12 +35,13 @@ jar {
 repositories {
     mavenCentral()
 }
-//processResources.dependsOn('frontend:build')
+processResources.dependsOn('frontend:build')
 //processResources.dependsOn('frontend:updataall','frontend:updataallow','frontend:istall','frontend:build')
 
 
 dependencies {
     /// SPRING BOOT
+
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation  group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.4.RELEASE'
@@ -50,6 +51,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     runtime('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.4.5'
+    compile group: 'org.springframework', name: 'spring-context-support', version: '5.3.6'
 
 
     //web
@@ -74,6 +77,8 @@ dependencies {
     implementation  group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
     implementation group: 'com.ibm.icu', name: 'icu4j', version: '69.1'
 
+
+
     //test
     testImplementation  group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.0-M1'
 
@@ -87,6 +92,7 @@ dependencies {
     // JWT
     compile 'io.jsonwebtoken:jjwt:0.9.0'
 
+
 }
 test {
     useJUnitPlatform()
@@ -96,5 +102,6 @@ bootJar {
     mainClassName = 'ru.nti.tehsystem.TehsystemApplication'
 }
 springBoot {
+    buildInfo()
     mainClassName = 'ru.nti.tehsystem.TehsystemApplication'
 }

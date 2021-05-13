@@ -1,9 +1,9 @@
 package ru.nti.tehsystem.domain;
 
-import com.fasterxml.jackson.annotation.*;
+
+import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.nti.tehsystem.domain.enums.Level;
 
 import javax.persistence.*;
 import java.util.Comparator;
@@ -46,8 +46,13 @@ public class User implements UserDetails {
     @JsonView(Views.UserBasic.class)
     private Set<Roles> authorities;
     @JsonView(Views.UserAll.class)
-
+    private boolean emailConfirmed = false;
+    @JsonView(Views.UserAll.class)
     private Set<Notifications> notifications;
+    @JsonView(Views.UserAll.class)
+
+
+    private Set<Category> categories;
 
     public User() {
     }
@@ -224,9 +229,10 @@ public class User implements UserDetails {
         Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData));
         try {
             notifications.addAll(this.notifications);
-        }catch (NullPointerException nullPointerException){
+        } catch (NullPointerException nullPointerException) {
 
         }
+        this.notifications = notifications;
 
         return notifications;
     }
@@ -234,5 +240,21 @@ public class User implements UserDetails {
     public void setNotifications(Set<Notifications> notifications) {
 
         this.notifications = notifications;
+    }
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
+    public boolean isEmailConfirmed() {
+        return emailConfirmed;
+    }
+
+    public void setEmailConfirmed(boolean emailConfirmed) {
+        this.emailConfirmed = emailConfirmed;
     }
 }

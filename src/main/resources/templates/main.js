@@ -713,8 +713,8 @@ class AppService {
         this.router = router;
         this.cookieService = cookieService;
         this.isAdmin = false;
-        this.serverURL2 = '';
-        this.serverURL = '//localhost/';
+        this.serverURL = '';
+        this.serverURL2 = '//localhost/';
         this.authenticated = false;
         this.login = new Login();
         http.get(this.serverURL + 'usersss').subscribe((next) => {
