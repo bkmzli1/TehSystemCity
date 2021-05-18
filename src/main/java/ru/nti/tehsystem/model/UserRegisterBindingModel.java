@@ -1,15 +1,16 @@
 package ru.nti.tehsystem.model;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import  ru.nti.tehsystem.model.validations.IsEmailRegistered;
-import  ru.nti.tehsystem.model.validations.IsPasswordMatching;
-import  ru.nti.tehsystem.model.validations.IsUsernameTaken;
+import ru.nti.tehsystem.model.validations.IsPasswordMatching;
+import ru.nti.tehsystem.model.validations.IsUsernameTaken;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @EnableWebMvc
+@Validated
 @IsPasswordMatching()
 public class UserRegisterBindingModel {
     @Size(min = 4, max = 20, message = "Имя пользователя должно быть от 4 до 20 символов")
@@ -25,12 +26,14 @@ public class UserRegisterBindingModel {
     @NotEmpty(message = "Укажите почту")
     @Email(message = "Неправильная почта")
     private String email;
+    private String id;
     private String telephone;
     private String img;
     private String imgFon;
 
 
     private boolean admin;
+    private boolean superAdmin;
     private boolean executor;
     @NotEmpty(message = "Укажите ФИО")
     private String firstName;
@@ -146,7 +149,21 @@ public class UserRegisterBindingModel {
         this.telephone = telephone;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public boolean isSuperAdmin() {
+        return superAdmin;
+    }
+
+    public void setSuperAdmin(boolean superAdmin) {
+        this.superAdmin = superAdmin;
+    }
 }
 
 

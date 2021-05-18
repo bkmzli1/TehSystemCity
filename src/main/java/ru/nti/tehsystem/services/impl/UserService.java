@@ -17,7 +17,8 @@ public interface UserService extends UserDetailsService {
     boolean isEmailTaken(String email);
 
     UserRegisterBindingModel findByUsername(String username);
+    UserRegisterBindingModel findById(String id);
 
-    User findById(String id);
+
 
 }

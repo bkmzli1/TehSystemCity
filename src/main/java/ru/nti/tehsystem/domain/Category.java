@@ -18,6 +18,7 @@ public class Category {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
+
     @JsonView(Views.Id.class)
     private String id;
     @JsonView(Views.UserBasic.class)
