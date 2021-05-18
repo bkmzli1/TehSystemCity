@@ -1,6 +1,5 @@
 package ru.nti.tehsystem.model;
 
-import  ru.nti.tehsystem.domain.enums.Level;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

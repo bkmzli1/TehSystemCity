@@ -32,9 +32,10 @@ public class InitialDataLoader implements ApplicationRunner {
         RoleServiceModel userRole = this.roleService.findByAuthority("USER");
         RoleServiceModel executorRole = this.roleService.findByAuthority("EXECUTOR");
         RoleServiceModel adminRole = this.roleService.findByAuthority("ADMIN");
+        RoleServiceModel superAdminAdminRole = this.roleService.findByAuthority("SUPER_ADMIN");
 
-        UserRegisterBindingModel userRoot = this.userService.findByUsername("root");
-        UserRegisterBindingModel userExecutor = this.userService.findByUsername("Все исполнители");
+        UserRegisterBindingModel userRoot = this.userService.findById("b6e6dc16-398d-49c6-a6ce-bcc28185f803");
+        UserRegisterBindingModel userExecutor = this.userService.findById("ee136612-c1ef-4f89-8b1d-23a1e8f0ff4e");
 
         if (userRole == null) {
             RoleServiceModel roleServiceModel = new RoleServiceModel();
@@ -54,20 +55,29 @@ public class InitialDataLoader implements ApplicationRunner {
             this.roleService.addRole(roleServiceModel);
         }
 
+        if (superAdminAdminRole == null) {
+            RoleServiceModel roleServiceModel = new RoleServiceModel();
+            roleServiceModel.setAuthority("SUPER_ADMIN");
+            this.roleService.addRole(roleServiceModel);
+        }
+
         if (userRoot == null){
             UserRegisterBindingModel user = new UserRegisterBindingModel();
             user.setPassword("root");
+            user.setId("b6e6dc16-398d-49c6-a6ce-bcc28185f803");
             user.setFirstName("Илья");
             user.setLastName("Егорушкин");
             user.setMiddleName("Андреевич");
             user.setEmail("ntiniaymifi@gmail.com");
             user.setUsername("root");
             user.setAdmin(true);
+            user.setSuperAdmin(true);
             this.userService.create(user);
         }
         if (userExecutor == null){
             UserRegisterBindingModel user = new UserRegisterBindingModel();
             user.setPassword("dqwfdwsfdwfws");
+            user.setId("ee136612-c1ef-4f89-8b1d-23a1e8f0ff4e");
             user.setEmail("-");
             user.setUsername("Все исполнители");
             user.setLastName("Все исполнители");

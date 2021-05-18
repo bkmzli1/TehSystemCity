@@ -1,19 +1,20 @@
 package ru.nti.tehsystem.services.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.nti.tehsystem.domain.Massages;
-import ru.nti.tehsystem.domain.Notifications;
-import ru.nti.tehsystem.domain.Task;
-import ru.nti.tehsystem.domain.User;
+import ru.nti.tehsystem.domain.*;
 import ru.nti.tehsystem.domain.enums.NotificationType;
 import ru.nti.tehsystem.model.MassageModel;
 import ru.nti.tehsystem.repo.*;
 import ru.nti.tehsystem.services.impl.MassageService;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -23,14 +24,19 @@ public class MassageServiceImpl implements MassageService {
     private final ImgRepo imgRepo;
     private final NotificationsRepo notificationsRepo;
     private final UserRepo userRepo;
-
+    private final MailService mailService;
+    private final EmailConfirmedRepo emailConfirmedRepo;
+    @Value("${urlSever}")
+    private String urlSever;
     @Autowired
-    public MassageServiceImpl(TaskRepo taskRepo, MassagesRepo massagesRepo, ImgRepo imgRepo, NotificationsRepo notificationsRepo, UserRepo userRepo) {
+    public MassageServiceImpl(TaskRepo taskRepo, MassagesRepo massagesRepo, ImgRepo imgRepo, NotificationsRepo notificationsRepo, UserRepo userRepo, MailService mailService, EmailConfirmedRepo emailConfirmedRepo) {
         this.taskRepo = taskRepo;
         this.massagesRepo = massagesRepo;
         this.imgRepo = imgRepo;
         this.notificationsRepo = notificationsRepo;
         this.userRepo = userRepo;
+        this.mailService = mailService;
+        this.emailConfirmedRepo = emailConfirmedRepo;
     }
 
     @Override
@@ -90,6 +96,15 @@ public class MassageServiceImpl implements MassageService {
 
         }
         taskRepo.save(task);
+
+            EmailConfirmed emailConfirmed = new EmailConfirmed();
+            emailConfirmed.setUser(user);
+            emailConfirmedRepo.save(emailConfirmed);
+            if (emailConfirmed.getCode() == null) {
+                emailConfirmed.setCode(UUID.randomUUID().toString());
+                emailConfirmedRepo.save(emailConfirmed);
+            }
+            mailService.send(user.getEmail(), "Вам сообщение", massage.getText()+"\n" +"id задачи"+urlSever +"/order/" +task.getId());
 
         return task;
     }

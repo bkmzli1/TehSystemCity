@@ -65,32 +65,33 @@ public class TaskServiceImpl implements TaskService {
         task.setDeletes(false);
         taskRepo.save(task);
         for (User userNot : task.getExecutor()) {
-            if (user.getId().equals(userNot.getId())) {
-                System.out.println(user.getId());
-                continue;
-            }
-            Notifications notifications = new Notifications();
-            notifications.setTaskId(task);
-            notifications.setLevel(task.getLevel());
-            notifications.setText("Создано для вас задание.\nНазвание \"" + task.getName() + "\"");
-            notifications.setData(LocalDateTime.now());
-            notifications.setNotificationType(NotificationType.TASK);
-            try {
-                Set<Notifications> notifications1 = userNot.getNotifications();
-                notifications1 .add(notifications);
-                userNot.setNotifications(notifications1);
-                notificationsRepo.save(notifications);
-                userRepo.save(userNot);
-            } catch (Exception e) {
-                userNot.setNotifications(new HashSet<Notifications>());
-                Set<Notifications> notificationsAdd = userNot.getNotifications();
-                notificationsAdd.add(notifications);
-                userNot.setNotifications(notificationsAdd);
-                notificationsRepo.save(notifications);
-                userRepo.save(userNot);
-            }
+            if (userNot.getId().equals("")) {
+                if (user.getId().equals(userNot.getId())) {
+                    System.out.println(user.getId());
+                    continue;
+                }
+                Notifications notifications = new Notifications();
+                notifications.setTaskId(task);
+                notifications.setLevel(task.getLevel());
+                notifications.setText("Создано для вас задание.\nНазвание \"" + task.getName() + "\"");
+                notifications.setData(LocalDateTime.now());
+                notifications.setNotificationType(NotificationType.TASK);
+                try {
+                    Set<Notifications> notifications1 = userNot.getNotifications();
+                    notifications1.add(notifications);
+                    userNot.setNotifications(notifications1);
+                    notificationsRepo.save(notifications);
+                    userRepo.save(userNot);
+                } catch (Exception e) {
+                    userNot.setNotifications(new HashSet<Notifications>());
+                    Set<Notifications> notificationsAdd = userNot.getNotifications();
+                    notificationsAdd.add(notifications);
+                    userNot.setNotifications(notificationsAdd);
+                    notificationsRepo.save(notifications);
+                    userRepo.save(userNot);
+                }
 
-
+            }
         }
         return task;
     }
