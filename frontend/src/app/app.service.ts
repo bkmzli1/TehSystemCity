@@ -30,6 +30,7 @@ class Login {
   isAccountNonLocked;
   isEnabled;
   isCredentialsNonExpired;
+  emailConfirmed;
 }
 
 @Injectable()
@@ -39,7 +40,7 @@ export class AppService {
   serverURL = '//localhost/';
   authenticated = false;
   login: Login = new Login();
-
+  notif = false;
   imgs: string[];
 
 
@@ -50,6 +51,10 @@ export class AppService {
       if (next != undefined || next != null) {
         this.authenticated = true;
         this.login = next;
+
+        if (!this.login.emailConfirmed) {
+          this.notif = true;
+        }
       }
 
     });
@@ -82,6 +87,9 @@ export class AppService {
       if (this.login.username) {
         this.authenticated = true;
         callback(false);
+        if (!this.login.emailConfirmed) {
+          this.notif = true;
+        }
       } else {
         this.authenticated = false;
         callback(true);

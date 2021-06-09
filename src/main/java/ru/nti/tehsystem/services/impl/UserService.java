@@ -10,7 +10,7 @@ public interface UserService extends UserDetailsService {
     void create(UserRegisterBindingModel userServiceModele);
     void edit(UserEditBindingModel userServiceModele);
 
-    void edit(User userServiceModele);
+
 
     boolean isUsernameTaken(String username);
 
@@ -18,6 +18,8 @@ public interface UserService extends UserDetailsService {
 
     UserRegisterBindingModel findByUsername(String username);
     UserRegisterBindingModel findById(String id);
+
+    void emailAtive(User user);
 
 
 

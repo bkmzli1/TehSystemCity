@@ -54,9 +54,11 @@ class Login {
   accountNonExpired: string;
   accountNonLocked: string;
   enabled: string;
-
+  notificationsEnabled = true;
   notifications: Notifications[];
   credentialsNonExpired: string;
+  emailConfirmed: any;
+  isEnabled: any;
 }
 
 @Component({
@@ -76,6 +78,7 @@ export class UserComponent implements OnInit, OnDestroy {
     this.route.queryParams.subscribe(params => {
       this.data = params['data'];
     });
+
     this.uploader = false;
     this.uplod();
     this.appc.cont = false;
@@ -92,9 +95,8 @@ export class UserComponent implements OnInit, OnDestroy {
 
       this.http.get(this.app.serverURL + 'user/' + this.id).subscribe((next: Login) => {
         this.login = next;
-        this.opNot(0);
+        this.opNot(500);
         this.uploader = true;
-
         this.uplod();
       }, error => this.uplod());
 
@@ -108,7 +110,6 @@ export class UserComponent implements OnInit, OnDestroy {
   opNot(s: number) {
     this.http.get(this.app.serverURL + 'notifications/get/' + s).subscribe((next: Notifications[]) => {
       this.login.notifications = next;
-
       this.uplod();
     }, error => this.uplod());
   }
@@ -143,5 +144,18 @@ export class UserComponent implements OnInit, OnDestroy {
 
   mass(item: Notifications, massages: string) {
     return item.notificationType == massages;
+  }
+
+  notificationsED() {
+    console.log(1);
+    let b = 0;
+    if (this.login.notificationsEnabled) {
+      b = 1;
+    } else {
+      b = 0;
+    }
+    this.http.put(this.app.serverURL + 'notificationsed/', b).subscribe((next: Login) => {
+      this.login = next;
+    });
   }
 }

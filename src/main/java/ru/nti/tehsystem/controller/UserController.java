@@ -136,7 +136,19 @@ public class UserController {
     }
 
 
+    @GetMapping("/emilactive")
+    public void email(Authentication authentication) {
+        User user = userRepository.findUserById(((User) authentication.getPrincipal()).getId());
+        userService.emailAtive(user);
+    }
 
+    @PutMapping("/notificationsed")
+    public Object notificationsED(Authentication authentication, @RequestBody boolean b) {
+        User user = userRepository.findUserById(((User) authentication.getPrincipal()).getId());
+        user.setNotificationsEnabled(!b);
+        userRepository.save(user);
+        return user;
+    }
 
     @PostMapping("/edituserapi")
     public Object allUsers(@RequestBody @Valid UserEditBindingModel userEditBindingModel,

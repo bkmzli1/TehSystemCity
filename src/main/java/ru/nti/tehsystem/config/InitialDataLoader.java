@@ -31,12 +31,20 @@ public class InitialDataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         RoleServiceModel userRole = this.roleService.findByAuthority("USER");
         RoleServiceModel executorRole = this.roleService.findByAuthority("EXECUTOR");
+        RoleServiceModel executorAllRole = this.roleService.findByAuthority("EXECUTOR_ALL");
         RoleServiceModel adminRole = this.roleService.findByAuthority("ADMIN");
         RoleServiceModel superAdminAdminRole = this.roleService.findByAuthority("SUPER_ADMIN");
 
-        UserRegisterBindingModel userRoot = this.userService.findById("b6e6dc16-398d-49c6-a6ce-bcc28185f803");
-        UserRegisterBindingModel userExecutor = this.userService.findById("ee136612-c1ef-4f89-8b1d-23a1e8f0ff4e");
+        UserRegisterBindingModel userRoot = null;
+        try {
+            userRoot= this.userService.findByUsername("root");
+        }catch (Exception e){}
 
+        UserRegisterBindingModel userExecutor= null;
+
+        try {
+            userExecutor = this.userService.findByUsername("root");
+        }catch (Exception e){}
         if (userRole == null) {
             RoleServiceModel roleServiceModel = new RoleServiceModel();
             roleServiceModel.setAuthority("USER");
@@ -60,11 +68,15 @@ public class InitialDataLoader implements ApplicationRunner {
             roleServiceModel.setAuthority("SUPER_ADMIN");
             this.roleService.addRole(roleServiceModel);
         }
+        if (executorAllRole == null) {
+            RoleServiceModel roleServiceModel = new RoleServiceModel();
+            roleServiceModel.setAuthority("EXECUTOR_ALL");
+            this.roleService.addRole(roleServiceModel);
+        }
 
         if (userRoot == null){
             UserRegisterBindingModel user = new UserRegisterBindingModel();
             user.setPassword("root");
-            user.setId("b6e6dc16-398d-49c6-a6ce-bcc28185f803");
             user.setFirstName("Илья");
             user.setLastName("Егорушкин");
             user.setMiddleName("Андреевич");
@@ -77,13 +89,14 @@ public class InitialDataLoader implements ApplicationRunner {
         if (userExecutor == null){
             UserRegisterBindingModel user = new UserRegisterBindingModel();
             user.setPassword("dqwfdwsfdwfws");
-            user.setId("ee136612-c1ef-4f89-8b1d-23a1e8f0ff4e");
             user.setEmail("-");
             user.setUsername("Все исполнители");
             user.setLastName("Все исполнители");
             user.setFirstName(" ");
             user.setMiddleName(" ");
             user.setExecutor(true);
+            user.setExecutorAll(true);
+            user.setSuperAdmin(true);
             this.userService.create(user);
         }
     }

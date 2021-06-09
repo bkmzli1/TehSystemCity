@@ -47,6 +47,8 @@ import {PhoneMaskDirective} from './create-user/phone-mask.directive';
 import {RegeditComponent} from './regedit/regedit.component';
 import {UserEditComponent} from './user-edit/user-edit.component';
 import { NotFoundeComponent } from './not-founde/not-founde.component';
+import { NotificationComponent } from './notification/notification.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @Injectable()
@@ -80,7 +82,9 @@ export class HttpXsrfInterceptor implements HttpInterceptor {
     PhoneMaskDirective,
     RegeditComponent,
     UserEditComponent,
-    NotFoundeComponent
+    NotFoundeComponent,
+    NotificationComponent,
+    EditComponent
   ], exports: [
     PhoneMaskDirective
   ],

@@ -39,7 +39,7 @@ public class User implements UserDetails {
     private boolean isAccountNonExpired;
     @JsonView(Views.UserAll.class)
     private boolean isAccountNonLocked;
-    @JsonView(Views.UserBasic.class)
+    @JsonView(Views.UserAll.class)
     private boolean isEnabled;
     @JsonView(Views.UserAll.class)
     private boolean isCredentialsNonExpired;
@@ -47,12 +47,14 @@ public class User implements UserDetails {
     private Set<Roles> authorities;
     @JsonView(Views.UserAll.class)
     private boolean emailConfirmed = false;
-    @JsonView(Views.UserAll.class)
+    @JsonView(Views.Id.class)
     private Set<Notifications> notifications;
     @JsonView(Views.UserAll.class)
-
-
     private Set<Category> categories;
+
+    @JsonView(Views.UserAll.class)
+    private boolean notificationsEnabled =false;
+
 
     public User() {
     }
@@ -256,5 +258,13 @@ public class User implements UserDetails {
 
     public void setEmailConfirmed(boolean emailConfirmed) {
         this.emailConfirmed = emailConfirmed;
+    }
+
+    public boolean isNotificationsEnabled() {
+        return notificationsEnabled;
+    }
+
+    public void setNotificationsEnabled(boolean notificationsEnabled) {
+        this.notificationsEnabled = notificationsEnabled;
     }
 }

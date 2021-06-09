@@ -114,7 +114,12 @@ public class UserServiceImpl implements UserService {
 
             authorities.add(rolesExecutor);
         }
+        if (userServiceModel.isExecutorAll()) {
+            roleServiceModel = this.roleService.findByAuthority("EXECUTOR_ALL");
+            Roles rolesExecutor = this.modelMapper.map(roleServiceModel, Roles.class);
 
+            authorities.add(rolesExecutor);
+        }
 
         userEntity.setAuthorities(authorities);
         this.userRepository.save(userEntity);
@@ -133,11 +138,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void edit(UserEditBindingModel userServiceModel) {
         User userEntity = this.modelMapper.map(userServiceModel, User.class);
-        if (!userServiceModel.isPassordof())
-            userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
-        else {
-            userEntity.setPassword(userRepository.findOneById(userServiceModel.getId()).getPassword());
-        }
+
+            if (!userServiceModel.isPassordof())
+                userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
+            else {
+                userEntity.setPassword(userRepository.findOneById(userServiceModel.getId()).getPassword());
+            }
 
         userEntity.setAccountNonExpired(true);
         userEntity.setAccountNonLocked(true);
@@ -181,32 +187,50 @@ public class UserServiceImpl implements UserService {
 
             authorities.add(rolesExecutor);
         }
+        User byAuthoritiesAuthorityAndId = userRepository.findByAuthoritiesAuthorityAndId("SUPER_ADMIN", userServiceModel.getId());
+        if (byAuthoritiesAuthorityAndId != null){
+            roleServiceModel = this.roleService.findByAuthority("SUPER_ADMIN");
+            Roles rolesAdmin = this.modelMapper.map(roleServiceModel, Roles.class);
+            authorities.add(rolesAdmin);
+            roleServiceModel = this.roleService.findByAuthority("ADMIN");
+            rolesAdmin = this.modelMapper.map(roleServiceModel, Roles.class);
 
+            authorities.add(rolesAdmin);
+        }
+         byAuthoritiesAuthorityAndId = userRepository.findByAuthoritiesAuthorityAndId("EXECUTOR_ALL", userServiceModel.getId());
+        if (byAuthoritiesAuthorityAndId != null){
+            roleServiceModel = this.roleService.findByAuthority("EXECUTOR_ALL");
+            Roles rolesAdmin = this.modelMapper.map(roleServiceModel, Roles.class);
+            authorities.add(rolesAdmin);
+            roleServiceModel = this.roleService.findByAuthority("EXECUTOR");
+            Roles rolesExecutor = this.modelMapper.map(roleServiceModel, Roles.class);
+            authorities.add(rolesExecutor);
+        }
         userEntity.setAuthorities(authorities);
         boolean isEmail = false;
-        if (this.userRepository.findById(userEntity.getId()).get().getEmail().equals(userEntity.getEmail())){
+        if (this.userRepository.findById(userEntity.getId()).get().getEmail().equals(userEntity.getEmail())) {
             isEmail = true;
             userEntity.setEmailConfirmed(false);
         }
 
         this.userRepository.save(userEntity);
         if (isEmail)
-            if (!userServiceModel.getEmail().isEmpty() & !userServiceModel.getEmail().equals("-")) {
-                EmailConfirmed emailConfirmed = new EmailConfirmed();
-                emailConfirmed.setUser(userEntity);
-                emailConfirmedRepo.save(emailConfirmed);
-                if (emailConfirmed.getCode() == null) {
-                    emailConfirmed.setCode(UUID.randomUUID().toString());
-                    emailConfirmedRepo.save(emailConfirmed);
-                }
-                mailService.send(userEntity.getEmail(), "Activation code", "URL: http://" + urlSever + "/activate/" + emailConfirmed.getCode());
-            }
+            if (!userServiceModel.getEmail().isEmpty() & !userServiceModel.getEmail().equals("-"))
+                emailAtive(userEntity);
     }
 
     @Override
-    public void edit(User userServiceModele) {
-
+    public void emailAtive(User user) {
+        EmailConfirmed emailConfirmed = new EmailConfirmed();
+        emailConfirmed.setUser(user);
+        emailConfirmedRepo.save(emailConfirmed);
+        if (emailConfirmed.getCode() == null) {
+            emailConfirmed.setCode(UUID.randomUUID().toString());
+            emailConfirmedRepo.save(emailConfirmed);
+        }
+        mailService.send(user.getEmail(), "Activation code", "URL: http://" + urlSever + "/activate/" + emailConfirmed.getCode());
     }
+
 
     @Override
     public boolean isUsernameTaken(String username) {
@@ -230,7 +254,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserRegisterBindingModel findById(String id) {
-        User userEntity = userRepository.findById("b6e6dc16-398d-49c6-a6ce-bcc28185f803").get();
+        User userEntity = userRepository.findById(id).get();
         UserRegisterBindingModel userModel = null;
         if (userEntity != null) {
             userModel = this.modelMapper.map(userEntity, UserRegisterBindingModel.class);

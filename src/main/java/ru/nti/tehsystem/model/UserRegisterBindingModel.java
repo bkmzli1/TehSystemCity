@@ -35,6 +35,7 @@ public class UserRegisterBindingModel {
     private boolean admin;
     private boolean superAdmin;
     private boolean executor;
+    private boolean executorAll;
     @NotEmpty(message = "Укажите ФИО")
     private String firstName;
     @NotEmpty(message = "Укажите ФИО")
@@ -163,6 +164,14 @@ public class UserRegisterBindingModel {
 
     public void setSuperAdmin(boolean superAdmin) {
         this.superAdmin = superAdmin;
+    }
+
+    public boolean isExecutorAll() {
+        return executorAll;
+    }
+
+    public void setExecutorAll(boolean executorAll) {
+        this.executorAll = executorAll;
     }
 }
 

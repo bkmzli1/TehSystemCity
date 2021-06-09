@@ -48,7 +48,8 @@ public class NotificationsController {
     @JsonView({Views.UserBasic.class})
     public Object notification(Authentication authentication, @PathVariable String time) throws InterruptedException {
         try {
-            User user = userRepo.findUserById(((User) authentication.getPrincipal()).getId());
+            User principal = (User) authentication.getPrincipal();
+            User user = userRepo.findUserById(principal.getId());
 
             Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData));
             notifications.addAll(user.getNotifications());

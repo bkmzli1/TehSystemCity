@@ -1,0 +1,18 @@
+.alertMy {
+  position: relative;
+  padding: .75rem 1.25rem;
+  /* margin-bottom: 1rem; */
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+.myhref {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+.myhref:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
