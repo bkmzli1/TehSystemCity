@@ -39,7 +39,8 @@ export class UserEditComponent implements OnInit {
   private id: string;
   password = true;
 
-  constructor(private app: AppService, private http: HttpClient, private router: Router, private cookieService: CookieService, public appc: AppComponent, fb: FormBuilder, private route: ActivatedRoute,) {
+  constructor(private app: AppService, private http: HttpClient, private router: Router,
+              private cookieService: CookieService, public appc: AppComponent, fb: FormBuilder, private route: ActivatedRoute) {
     this.route.params.subscribe((params: any) => this.id = params.id);
 
     this.http.get(this.app.serverURL + 'user/' + this.id).subscribe((next: User) => {
@@ -88,6 +89,7 @@ export class UserEditComponent implements OnInit {
   }
 
   bole(b) {
+    console.log(b);
 
   }
 }

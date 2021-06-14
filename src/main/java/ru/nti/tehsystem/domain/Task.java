@@ -1,16 +1,17 @@
 package ru.nti.tehsystem.domain;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.annotations.GenericGenerator;
-import  ru.nti.tehsystem.domain.enums.Level;
+import ru.nti.tehsystem.domain.enums.Level;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
-
-import static java.lang.Math.*;
 
 @Entity
 @Table(name = "task")
@@ -44,6 +45,7 @@ public class Task {
     private User creator;
     @ManyToMany(fetch = FetchType.EAGER)
     @JsonView(Views.TaskBasic.class)
+    @JsonIdentityInfo(generator=ObjectIdGenerators.StringIdGenerator.class, property="@executor")
     private Set<User> executor;
     @ManyToOne
     @JsonView(Views.TaskUpdate.class)

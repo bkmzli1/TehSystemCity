@@ -51,7 +51,7 @@ public class NotificationsController {
             User principal = (User) authentication.getPrincipal();
             User user = userRepo.findUserById(principal.getId());
 
-            Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData));
+            Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData).reversed());
             notifications.addAll(user.getNotifications());
 
             notifications.removeIf(Notifications::isClose);

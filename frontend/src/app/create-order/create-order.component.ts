@@ -49,6 +49,7 @@ export class CreateOrderComponent implements OnInit {
   name: string;
   maxText = 255;
   successful: string[] = [];
+  serchUser: User[] = [];
 
 
   constructor(private app: AppService, private http: HttpClient, private router: Router,
@@ -57,6 +58,12 @@ export class CreateOrderComponent implements OnInit {
     this.http.get(app.serverURL + 'executor').subscribe((response: User[]) => {
       this.ex = response;
     });
+    this.http.get(app.serverURL + 'userRole/EXECUTOR').subscribe((response: User[]) => {
+      this.serchUser = response;
+      console.log(response);
+      console.log(1);
+    });
+
   }
 
   test(item: string): any {
@@ -157,5 +164,15 @@ export class CreateOrderComponent implements OnInit {
     return userId;
   }
 
+
+  a(id: string) {
+    console.log(id);
+  }
+
+  close(user: User) {
+    this.exList.forEach( (item, index) => {
+      if(item === user) this.exList.splice(index,1);
+    });
+  }
 }
 

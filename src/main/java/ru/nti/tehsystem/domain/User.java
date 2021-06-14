@@ -228,7 +228,7 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "notifications_id", referencedColumnName = "id"))
 
     public Set<Notifications> getNotifications() {
-        Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData));
+        Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData).reversed());
         try {
             notifications.addAll(this.notifications);
         } catch (NullPointerException nullPointerException) {

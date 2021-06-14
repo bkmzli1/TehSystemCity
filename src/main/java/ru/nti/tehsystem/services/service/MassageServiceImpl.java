@@ -64,7 +64,7 @@ public class MassageServiceImpl implements MassageService {
                 continue;
             }
             Notifications notifications = new Notifications();
-            notifications.setMassages(massage);
+//            notifications.setMassages(massage);
             notifications.setTaskId(task);
             notifications.setLevel(task.getLevel());
             String str = massage.getText();

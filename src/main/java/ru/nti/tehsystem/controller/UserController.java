@@ -141,6 +141,23 @@ public class UserController {
         User user = userRepository.findUserById(((User) authentication.getPrincipal()).getId());
         userService.emailAtive(user);
     }
+    @JsonView(Views.UserBasic.class)
+    @GetMapping("/userRole/{role}")
+    public Object userRole(@PathVariable String role) {
+        List<User> executor = userRepository.findByAuthoritiesAuthority(role);
+        return executor;
+    }
+
+    @GetMapping("/isemilactive")
+    public Object isemail(Authentication authentication) {
+        try {
+            User user = userRepository.findUserById(((User) authentication.getPrincipal()).getId());
+            return user.isEmailConfirmed();
+        }catch (Exception e){
+            return null;
+        }
+
+    }
 
     @PutMapping("/notificationsed")
     public Object notificationsED(Authentication authentication, @RequestBody boolean b) {

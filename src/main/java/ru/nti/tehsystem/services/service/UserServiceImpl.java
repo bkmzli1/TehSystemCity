@@ -102,20 +102,8 @@ public class UserServiceImpl implements UserService {
 
             authorities.add(rolesAdmin);
         }
-        if (userServiceModel.isAdmin()) {
-            roleServiceModel = this.roleService.findByAuthority("SUPER_ADMIN");
-            Roles rolesAdmin = this.modelMapper.map(roleServiceModel, Roles.class);
-
-            authorities.add(rolesAdmin);
-        }
         if (userServiceModel.isExecutor()) {
             roleServiceModel = this.roleService.findByAuthority("EXECUTOR");
-            Roles rolesExecutor = this.modelMapper.map(roleServiceModel, Roles.class);
-
-            authorities.add(rolesExecutor);
-        }
-        if (userServiceModel.isExecutorAll()) {
-            roleServiceModel = this.roleService.findByAuthority("EXECUTOR_ALL");
             Roles rolesExecutor = this.modelMapper.map(roleServiceModel, Roles.class);
 
             authorities.add(rolesExecutor);

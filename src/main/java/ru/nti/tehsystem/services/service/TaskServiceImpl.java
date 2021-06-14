@@ -20,7 +20,6 @@ import ru.nti.tehsystem.services.impl.TaskService;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Transactional
@@ -65,58 +64,26 @@ public class TaskServiceImpl implements TaskService {
         task.setDeletes(false);
         taskRepo.save(task);
         for (User userNot : task.getExecutor()) {
-            User executor_all = userRepo.findByAuthoritiesAuthorityAndId("EXECUTOR_ALL", userNot.getId());
-            if (userNot.getId().equals(executor_all.getId())) {
-                userRepo.findUsersByAuthoritiesAuthority("EXECUTOR").forEach(executor ->{
-                    Notifications notifications = new Notifications();
-                    notifications.setTaskId(task);
-                    notifications.setLevel(task.getLevel());
-                    notifications.setText("Создано для вас задание.\nНазвание \"" + task.getName() + "\"");
-                    notifications.setData(LocalDateTime.now());
-                    notifications.setNotificationType(NotificationType.TASK);
-                    try {
-                        Set<Notifications> notifications1 = userNot.getNotifications();
-                        notifications1.add(notifications);
-                        userNot.setNotifications(notifications1);
-                        notificationsRepo.save(notifications);
-                        userRepo.save(userNot);
-                    } catch (Exception e) {
-                        userNot.setNotifications(new HashSet<Notifications>());
-                        Set<Notifications> notificationsAdd = userNot.getNotifications();
-                        notificationsAdd.add(notifications);
-                        userNot.setNotifications(notificationsAdd);
-                        notificationsRepo.save(notifications);
-                        userRepo.save(userNot);
-                    }
-                });
-                break;
 
-            }else {
-                if (user.getId().equals(userNot.getId())) {
-                    System.out.println(user.getId());
-                    continue;
-                }
+            User executor_all = userRepo.findByAuthoritiesAuthorityAndId("EXECUTOR_ALL", userNot.getId());
+
+            userRepo.findUsersByAuthoritiesAuthority("EXECUTOR").forEach(executor -> {
                 Notifications notifications = new Notifications();
                 notifications.setTaskId(task);
                 notifications.setLevel(task.getLevel());
                 notifications.setText("Создано для вас задание.\nНазвание \"" + task.getName() + "\"");
                 notifications.setData(LocalDateTime.now());
                 notifications.setNotificationType(NotificationType.TASK);
-                try {
-                    Set<Notifications> notifications1 = userNot.getNotifications();
-                    notifications1.add(notifications);
-                    userNot.setNotifications(notifications1);
+
+
+                userNot.getNotifications().add(notifications);
+
                     notificationsRepo.save(notifications);
                     userRepo.save(userNot);
-                } catch (Exception e) {
-                    userNot.setNotifications(new HashSet<Notifications>());
-                    Set<Notifications> notificationsAdd = userNot.getNotifications();
-                    notificationsAdd.add(notifications);
-                    userNot.setNotifications(notificationsAdd);
-                    notificationsRepo.save(notifications);
-                    userRepo.save(userNot);
-                }
-            }
+
+            });
+
+
         }
         return task;
     }

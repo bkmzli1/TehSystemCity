@@ -1,13 +1,10 @@
 package ru.nti.tehsystem.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.annotations.GenericGenerator;
 import ru.nti.tehsystem.domain.enums.Level;
 import ru.nti.tehsystem.domain.enums.NotificationType;
-import ru.nti.tehsystem.repo.MassagesRepo;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -41,9 +38,9 @@ public class Notifications {
     @JsonView(Views.NotificationsBasic.class)
     private NotificationType notificationType;
     @JsonView(Views.NotificationsBasic.class)
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-
-    private Massages massages;
+//    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+//
+//    private Massages massages;
 
 
 
@@ -104,11 +101,11 @@ public class Notifications {
         this.notificationType = notificationType;
     }
 
-    public Massages getMassages() {
-        return massages;
-    }
-
-    public void setMassages(Massages massages) {
-        this.massages = massages;
-    }
+//    public Massages getMassages() {
+//        return massages;
+//    }
+//
+//    public void setMassages(Massages massages) {
+//        this.massages = massages;
+//    }
 }

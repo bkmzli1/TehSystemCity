@@ -478,3 +478,13 @@ input:required, textarea:required {
   border-radius: 3px;
   cursor: pointer;
 }
+.cliseX {
+  text-align: right;
+  margin: -15px 0px 0px -27px ;
+  position: absolute;
+  cursor: pointer;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}

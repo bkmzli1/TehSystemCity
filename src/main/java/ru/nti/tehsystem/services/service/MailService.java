@@ -12,18 +12,25 @@ public class MailService {
     private final JavaMailSender mailSender;
     @Value("${spring.mail.username}")
     private String username;
+
     @Autowired
     public MailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
-    public void send(String emailTo,String subject,String massage){
-        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom(username);
-        simpleMailMessage.setTo(emailTo);
-        simpleMailMessage.setSubject(subject);
-        simpleMailMessage.setText(massage);
-        mailSender.send(simpleMailMessage);
+    public void send(String emailTo, String subject, String massage) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+                simpleMailMessage.setFrom(username);
+                simpleMailMessage.setTo(emailTo);
+                simpleMailMessage.setSubject(subject);
+                simpleMailMessage.setText(massage);
+                mailSender.send(simpleMailMessage);
+            }
+        },"MailService.send").start();
+
     }
 
 }
