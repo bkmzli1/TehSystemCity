@@ -12,6 +12,7 @@ class Orders {
 
   creator: Login = new Login();
   name: string;
+  id: string;
 }
 
 class Img {
@@ -95,13 +96,14 @@ export class UserComponent implements OnInit, OnDestroy {
 
       this.http.get(this.app.serverURL + 'user/' + this.id).subscribe((next: Login) => {
         this.login = next;
+        console.log(next);
         this.opNot(500);
         this.uploader = true;
         this.uplod();
       }, error => this.uplod());
 
     } else {
-      this.opNot(1000);
+      this.opNot(4000);
 
     }
 
@@ -111,6 +113,8 @@ export class UserComponent implements OnInit, OnDestroy {
     this.http.get(this.app.serverURL + 'notifications/get/' + s).subscribe((next: Notifications[]) => {
       this.login.notifications = next;
       this.uplod();
+      console.log(next);
+      console.log(this.app.serverURL + 'notifications/get/' + s);
     }, error => this.uplod());
   }
 

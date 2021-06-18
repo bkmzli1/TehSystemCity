@@ -30,7 +30,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         System.out.println("file:///" + fileUploadPath.getAbsolutePath().replace("\\","/"));
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/templates/");
-
+        registry.addResourceHandler("/templates/**")
+                .addResourceLocations("classpath:/templates/");
 
         registry.addResourceHandler("/**/*")
                 .addResourceLocations("classpath:/templates/")

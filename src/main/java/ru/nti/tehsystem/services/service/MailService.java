@@ -2,7 +2,6 @@ package ru.nti.tehsystem.services.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +21,12 @@ public class MailService {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-                simpleMailMessage.setFrom(username);
-                simpleMailMessage.setTo(emailTo);
-                simpleMailMessage.setSubject(subject);
-                simpleMailMessage.setText(massage);
-                mailSender.send(simpleMailMessage);
+//                SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+//                simpleMailMessage.setFrom(username);
+//                simpleMailMessage.setTo(emailTo);
+//                simpleMailMessage.setSubject(subject);
+//                simpleMailMessage.setText(massage);
+//                mailSender.send(simpleMailMessage);
             }
         },"MailService.send").start();
 

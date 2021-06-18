@@ -72,7 +72,6 @@ export class OrderComponent implements OnInit, OnDestroy {
 
 
   uploadMessage(): any {
-
     if (this.uploader == null) {
 
       return;

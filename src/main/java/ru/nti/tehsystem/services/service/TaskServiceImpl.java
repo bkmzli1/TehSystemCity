@@ -10,7 +10,7 @@ import ru.nti.tehsystem.domain.Task;
 import ru.nti.tehsystem.domain.User;
 import ru.nti.tehsystem.domain.enums.Level;
 import ru.nti.tehsystem.domain.enums.NotificationType;
-import ru.nti.tehsystem.model.TaskCreate;
+import ru.nti.tehsystem.model.in.TaskCreate;
 import ru.nti.tehsystem.repo.ImgRepo;
 import ru.nti.tehsystem.repo.NotificationsRepo;
 import ru.nti.tehsystem.repo.TaskRepo;
@@ -77,9 +77,7 @@ public class TaskServiceImpl implements TaskService {
 
 
                 userNot.getNotifications().add(notifications);
-
-                    notificationsRepo.save(notifications);
-                    userRepo.save(userNot);
+                userRepo.save(userNot);
 
             });
 

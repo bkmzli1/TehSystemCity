@@ -7,7 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.nti.tehsystem.domain.User;
-import ru.nti.tehsystem.model.UserRegisterBindingModel;
+import ru.nti.tehsystem.model.in.UserRegisterBindingModel;
 import ru.nti.tehsystem.repo.UserRepo;
 import ru.nti.tehsystem.services.impl.UserService;
 

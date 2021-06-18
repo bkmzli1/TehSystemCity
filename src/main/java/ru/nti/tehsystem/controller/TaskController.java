@@ -7,7 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.nti.tehsystem.domain.*;
-import ru.nti.tehsystem.model.TaskCreate;
+import ru.nti.tehsystem.model.in.TaskCreate;
 import ru.nti.tehsystem.repo.TaskRepo;
 import ru.nti.tehsystem.repo.UserRepo;
 import ru.nti.tehsystem.services.impl.TaskService;
@@ -143,6 +143,9 @@ public class TaskController {
             tasks.addAll(taskRepo.findAll());
             tasks.removeIf(Task::isDeletes);
             tasks.removeIf(task -> !task.isDoneCrate());
+            tasks.removeIf(Task::isDeletes);
+            tasks.forEach(task -> task.getExecutor().forEach(ex -> ex.setNotifications(null)));
+            tasks.forEach(task -> task.getCreator().setNotifications(null));
             return tasks;
         } else {
             List<Task> taskList = new ArrayList<>(taskRepo.findByCreator(user));
@@ -156,7 +159,8 @@ public class TaskController {
             tasks.addAll(taskList);
             tasks.removeIf(task -> !task.isDoneCrate());
             tasks.removeIf(Task::isDeletes);
-
+            tasks.forEach(task -> task.getExecutor().forEach(ex -> ex.setNotifications(null)));
+            tasks.forEach(task -> task.getCreator().setNotifications(null));
             return tasks;
         }
     }
@@ -168,13 +172,15 @@ public class TaskController {
         User user = userRepo.findUserById(((User) authentication.getPrincipal()).getId());
         List<Task> taskList = new ArrayList<>(taskRepo.findByCreator(user));
         Set<Task> tasks = new TreeSet<>(Comparator.comparing(Task::getCrate));
-
+        tasks.forEach(task -> task.getExecutor().forEach(ex -> ex.setNotifications(null)));
+        tasks.forEach(task -> task.getCreator().setNotifications(null));
         tasks.addAll(taskList);
+
         return tasks;
 
     }
 
-    @JsonView(Views.TaskAll.class)
+
     @GetMapping("/get/{id}")
     @ResponseBody
     public Task task(@PathVariable String id) {
@@ -182,19 +188,22 @@ public class TaskController {
         Set<Massages> projects = new TreeSet<>(Comparator.comparing(Massages::getDateTime));
         projects.addAll(task.getMassages());
         task.setMassages(projects);
+        task.getExecutor().forEach(ex -> ex.setNotifications(null));
+        task.getCreator().setNotifications(null);
         return task;
     }
 
-    @JsonView(Views.TaskUpdate.class)
+
     @PostMapping("/get/{id}")
     @ResponseBody
-    public Task taskUpload(@PathVariable String id) throws InterruptedException {
+    public Object taskUpload(@PathVariable String id) throws InterruptedException {
         Thread.sleep(5000);
         Task task = taskRepo.findById(id).get();
         Set<Massages> projects = new TreeSet<>(Comparator.comparing(Massages::getDateTime));
         projects.addAll(task.getMassages());
         task.setMassages(projects);
-
+        task.getExecutor().forEach(ex -> ex.setNotifications(null));
+        task.getCreator().setNotifications(null);
         return task;
     }
 

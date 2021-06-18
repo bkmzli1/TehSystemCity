@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nti.tehsystem.domain.Img;
-import ru.nti.tehsystem.model.ImgCreateModel;
+import ru.nti.tehsystem.model.in.ImgCreateModel;
 import ru.nti.tehsystem.repo.ImgRepo;
 import ru.nti.tehsystem.services.impl.ImgService;
 

@@ -8,8 +8,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import  ru.nti.tehsystem.model.RoleServiceModel;
-import  ru.nti.tehsystem.model.UserRegisterBindingModel;
+import ru.nti.tehsystem.model.in.RoleServiceModel;
+import ru.nti.tehsystem.model.in.UserRegisterBindingModel;
 import  ru.nti.tehsystem.services.impl.RoleService;
 import  ru.nti.tehsystem.services.impl.UserService;
 

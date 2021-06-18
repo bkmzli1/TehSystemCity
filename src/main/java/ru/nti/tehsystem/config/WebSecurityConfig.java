@@ -13,12 +13,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import ru.nti.tehsystem.services.impl.UserService;
 
-import java.io.*;
 import java.net.URL;
 import java.security.CodeSource;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -68,36 +64,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         loadTemplates(http);
 
 
-//             http.authorizeRequests()
-//                     .antMatchers("/templates/**", "/static/**", "/registration", "/login", "/user").permitAll()
-//                    .antMatchers("/**","/ordersCreate").authenticated()
-//                    .antMatchers("/**").authenticated()
-//                    .antMatchers("/**").authenticated()
-//                    .anyRequest()
-//                    .authenticated()
-//                    .and()
-//                    .formLogin()
-//                    .loginPage("/login")
-//                     .defaultSuccessUrl("/ordersCreate")
-//                    .permitAll()
-//                    .and()
-//                    .logout()
-//                    .permitAll().and().csrf().disable().httpBasic();
+             http.authorizeRequests()
+                     .antMatchers("/templates/**", "/static/**", "/registration", "/login", "/user").permitAll()
+                    .antMatchers("/**","/ordersCreate").authenticated()
+                    .antMatchers("/**").authenticated()
+                    .antMatchers("/**").authenticated()
+                    .anyRequest()
+                    .authenticated()
+                    .and()
+                    .formLogin()
+                    .loginPage("/login")
+                     .defaultSuccessUrl("/ordersCreate")
+                    .permitAll()
+                    .and()
+                    .logout()
+                    .permitAll().and().csrf().disable().httpBasic();
 
 
-        http.authorizeRequests()
-                .antMatchers("/**").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/ordersCreate")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll().and().csrf().disable().httpBasic();
-        http.csrf().disable().httpBasic();
+//        http.authorizeRequests()
+//                .antMatchers("/**").permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/ordersCreate")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll().and().csrf().disable().httpBasic();
+//        http.csrf().disable().httpBasic();
 
     }
 

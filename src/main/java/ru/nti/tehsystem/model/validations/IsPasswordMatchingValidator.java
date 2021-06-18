@@ -1,8 +1,8 @@
 package ru.nti.tehsystem.model.validations;
 
 
-import  ru.nti.tehsystem.model.UserEditBindingModel;
-import  ru.nti.tehsystem.model.UserRegisterBindingModel;
+import ru.nti.tehsystem.model.in.UserEditBindingModel;
+import ru.nti.tehsystem.model.in.UserRegisterBindingModel;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

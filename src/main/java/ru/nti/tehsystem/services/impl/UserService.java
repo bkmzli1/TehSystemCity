@@ -3,8 +3,8 @@ package ru.nti.tehsystem.services.impl;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import  ru.nti.tehsystem.domain.User;
-import  ru.nti.tehsystem.model.UserEditBindingModel;
-import  ru.nti.tehsystem.model.UserRegisterBindingModel;
+import ru.nti.tehsystem.model.in.UserEditBindingModel;
+import ru.nti.tehsystem.model.in.UserRegisterBindingModel;
 
 public interface UserService extends UserDetailsService {
     void create(UserRegisterBindingModel userServiceModele);

@@ -1,6 +1,7 @@
 package ru.nti.tehsystem.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.GenericGenerator;
 import ru.nti.tehsystem.domain.enums.Level;
@@ -30,6 +31,8 @@ public class Notifications {
 
     @JsonView(Views.NotificationsBasic.class)
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+
+    @JsonManagedReference
     private Task taskId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")

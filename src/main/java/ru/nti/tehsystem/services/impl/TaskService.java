@@ -2,7 +2,7 @@ package ru.nti.tehsystem.services.impl;
 
 import  ru.nti.tehsystem.domain.Task;
 import  ru.nti.tehsystem.domain.User;
-import  ru.nti.tehsystem.model.TaskCreate;
+import ru.nti.tehsystem.model.in.TaskCreate;
 
 public interface TaskService {
     Task taskCrate(TaskCreate taskCreate, User user);

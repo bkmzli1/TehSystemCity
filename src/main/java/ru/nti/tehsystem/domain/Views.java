@@ -1,8 +1,6 @@
 package ru.nti.tehsystem.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 public final class Views {
 
     public interface Id {}

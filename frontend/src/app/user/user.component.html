@@ -157,13 +157,13 @@
              role="alert" *ngFor="let item of login.notifications">
           <a (click)="close(item.id)"
              class="cliseX">x</a>
-          <div class="row">
+          <div class="row" [routerLink]="'/order/'+item.taskId.id">
 
             <div *ngIf="mass(item,'TASK')">
               {{item.taskId.creator.lastName}} {{item.taskId.creator.firstName}} {{item.taskId.creator.middleName}}
             </div>
             <div *ngIf="mass(item,'MASSAGES')">
-              {{item.massages.user.lastName}} {{item.massages.user.firstName}} {{item.massages.user.middleName}}
+              новое сообщение
 
             </div>
             <div style="text-align: right" class="col">

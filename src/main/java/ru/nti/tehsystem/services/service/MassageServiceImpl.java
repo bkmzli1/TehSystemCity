@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nti.tehsystem.domain.*;
 import ru.nti.tehsystem.domain.enums.NotificationType;
-import ru.nti.tehsystem.model.MassageModel;
+import ru.nti.tehsystem.model.in.MassageModel;
 import ru.nti.tehsystem.repo.*;
 import ru.nti.tehsystem.services.impl.MassageService;
 

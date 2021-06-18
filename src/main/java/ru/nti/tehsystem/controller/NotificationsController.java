@@ -17,11 +17,12 @@ import java.util.*;
 public class NotificationsController {
     private final NotificationsRepo notificationsRepo;
     private final UserRepo userRepo;
+    private final UserRepo userRepository;
 
-
-    public NotificationsController(NotificationsRepo notificationsRepo, UserRepo userRepo) {
+    public NotificationsController(NotificationsRepo notificationsRepo, UserRepo userRepo, UserRepo userRepository) {
         this.notificationsRepo = notificationsRepo;
         this.userRepo = userRepo;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("")
@@ -48,7 +49,7 @@ public class NotificationsController {
     @JsonView({Views.UserBasic.class})
     public Object notification(Authentication authentication, @PathVariable String time) throws InterruptedException {
         try {
-            User principal = (User) authentication.getPrincipal();
+            User principal = userRepository.findUserById(((User) authentication.getPrincipal()).getId());
             User user = userRepo.findUserById(principal.getId());
 
             Set<Notifications> notifications = new TreeSet<>(Comparator.comparing(Notifications::getData).reversed());

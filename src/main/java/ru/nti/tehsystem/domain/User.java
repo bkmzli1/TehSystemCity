@@ -1,6 +1,7 @@
 package ru.nti.tehsystem.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -48,6 +49,7 @@ public class User implements UserDetails {
     @JsonView(Views.UserAll.class)
     private boolean emailConfirmed = false;
     @JsonView(Views.Id.class)
+    @JsonBackReference
     private Set<Notifications> notifications;
     @JsonView(Views.UserAll.class)
     private Set<Category> categories;

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import  ru.nti.tehsystem.domain.Task;
 import  ru.nti.tehsystem.domain.User;
 import  ru.nti.tehsystem.domain.Views;
-import  ru.nti.tehsystem.model.MassageModel;
+import ru.nti.tehsystem.model.in.MassageModel;
 import  ru.nti.tehsystem.repo.TaskRepo;
 import  ru.nti.tehsystem.repo.UserRepo;
 import  ru.nti.tehsystem.services.impl.MassageService;
