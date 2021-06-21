@@ -13,6 +13,14 @@ export class NotificationComponent implements OnInit {
   notif = false;
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, public app: AppService, public appc: AppComponent) {
+    this.http.get(this.app.serverURL + 'isemilactive/').subscribe((next: boolean) => {
+      this.notif = next;
+      if (next == null) {
+        this.notif = true;
+      }
+    }, error => {
+      this.notif = true;
+    });
   }
 
   ngOnInit(): void {
@@ -25,15 +33,6 @@ export class NotificationComponent implements OnInit {
   }
 
   notifyEmail() {
-
-    this.http.get(this.app.serverURL + 'isemilactive/').subscribe((next: boolean) => {
-      this.notif = next;
-      if (next == null) {
-        this.notif = true;
-      }
-    }, error => {
-      this.notif = true;
-    });
-    return !this.notif || this.app.authenticated;
+    return !this.notif && this.app.authenticated;
   }
 }

@@ -64,36 +64,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         loadTemplates(http);
 
 
-             http.authorizeRequests()
-                     .antMatchers("/templates/**", "/static/**", "/registration", "/login", "/user").permitAll()
-                    .antMatchers("/**","/ordersCreate").authenticated()
-                    .antMatchers("/**").authenticated()
-                    .antMatchers("/**").authenticated()
-                    .anyRequest()
-                    .authenticated()
-                    .and()
-                    .formLogin()
-                    .loginPage("/login")
-                     .defaultSuccessUrl("/ordersCreate")
-                    .permitAll()
-                    .and()
-                    .logout()
-                    .permitAll().and().csrf().disable().httpBasic();
+//             http.authorizeRequests()
+//                     .antMatchers("/templates/**", "/static/**", "/registration", "/login", "/user").permitAll()
+//                    .antMatchers("/**","/ordersCreate").authenticated()
+//                    .antMatchers("/**").authenticated()
+//                    .antMatchers("/**").authenticated()
+//                    .anyRequest()
+//                    .authenticated()
+//                    .and()
+//                    .formLogin()
+//                    .loginPage("/login")
+//                     .defaultSuccessUrl("/ordersCreate")
+//                    .permitAll()
+//                    .and()
+//                    .logout()
+//                    .permitAll().and().csrf().disable().httpBasic();
 
 
-//        http.authorizeRequests()
-//                .antMatchers("/**").permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .defaultSuccessUrl("/ordersCreate")
-//                .permitAll()
-//                .and()
-//                .logout()
-//                .permitAll().and().csrf().disable().httpBasic();
-//        http.csrf().disable().httpBasic();
+        http.authorizeRequests()
+                .antMatchers("/**").permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/ordersCreate")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll().and().csrf().disable().httpBasic();
+        http.csrf().disable().httpBasic();
 
     }
 
