@@ -36,7 +36,7 @@ class Login {
 @Injectable()
 export class AppService {
   isAdmin = false;
-  serverURL = '//ntihelp.herokuapp.com';
+  serverURL = '';
   serverURL2 = '//localhost/';
   authenticated = false;
   login: Login = new Login();
