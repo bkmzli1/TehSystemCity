@@ -23,6 +23,7 @@ export class HeadComponent implements OnInit {
       this.notification = next;
       this.uploadNotif();
     });
+    app.isEmail();
   }
 
   uploadNotif() {

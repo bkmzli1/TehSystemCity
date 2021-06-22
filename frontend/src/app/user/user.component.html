@@ -63,13 +63,12 @@
             >{{login.email}}</label>
           </div>
 
-          <div *ngIf="app.login.id != id "
+          <div *ngIf="app.login.id == id "
                [ngClass]="{'input-group':true ,'mb-3':true,'alert':!login.emailConfirmed, 'alert-danger':!login.emailConfirmed }">
             <div class="input-group-prepend">
               <span class="input-group-text">Почта</span>
             </div>
-            <label class="form-control"
-            >{{login.email}}</label>
+            <label class="form-control">{{login.email}}</label>
           </div>
 
         </div>

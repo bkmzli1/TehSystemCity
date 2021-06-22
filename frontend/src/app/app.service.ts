@@ -53,10 +53,21 @@ export class AppService {
         this.login = next;
 
         if (!this.login.emailConfirmed) {
-          this.notif = true;
+          this.isEmail();
         }
       }
 
+    });
+  }
+
+  isEmail(){
+    this.http.get(this.serverURL + 'isemilactive/').subscribe((next: boolean) => {
+      this.notif = next;
+      if (next == null) {
+        this.notif = true;
+      }
+    }, error => {
+      this.notif = true;
     });
   }
 

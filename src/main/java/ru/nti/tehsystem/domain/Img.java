@@ -27,7 +27,8 @@ public class Img {
     private String img;
     @JsonView(Views.ImgAll.class)
     private ImgType imgType;
-
+    @JsonView(Views.ImgAll.class)
+    private byte[] bite;
 
 
 
@@ -63,5 +64,13 @@ public class Img {
 
     public void setImgType(ImgType imgType) {
         this.imgType = imgType;
+    }
+
+    public byte[] getBite() {
+        return bite;
+    }
+
+    public void setBite(byte[] bite) {
+        this.bite = bite;
     }
 }

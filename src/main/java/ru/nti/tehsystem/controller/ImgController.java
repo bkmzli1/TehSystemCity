@@ -13,6 +13,9 @@ import ru.nti.tehsystem.repo.ImgRepo;
 import ru.nti.tehsystem.repo.UserRepo;
 import ru.nti.tehsystem.services.impl.ImgService;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
@@ -101,5 +104,17 @@ public class ImgController {
         Set<String> imgIDs = new HashSet<>();
         images.forEach(img -> imgIDs.add(img.getId()));
         return imgIDs;
+    }
+    @RequestMapping(value = "/imageDisplay/{id}", method = RequestMethod.GET)
+    public void showImage(HttpServletResponse response, HttpServletRequest request, @PathVariable String id)
+            throws ServletException, IOException {
+
+
+        Img item = imgRepo.findById(id).get();
+        response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+        response.getOutputStream().write(item.getBite());
+
+
+        response.getOutputStream().close();
     }
 }

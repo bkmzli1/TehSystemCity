@@ -54,6 +54,7 @@ export class CreateOrderComponent implements OnInit {
 
   constructor(private app: AppService, private http: HttpClient, private router: Router,
               private cookieService: CookieService, public appc: AppComponent) {
+
     this.appc.cont = true;
     this.http.get(app.serverURL + 'executor').subscribe((response: User[]) => {
       this.ex = response;
@@ -74,7 +75,22 @@ export class CreateOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let inputs = document.querySelectorAll('.input__file');
+    Array.prototype.forEach.call(inputs, function (input) {
+      let label = input.nextElementSibling,
+        labelVal = label.querySelector('.input__file-button-text').innerText;
 
+      input.addEventListener('change', function (e) {
+        let countFiles = '';
+        if (this.files && this.files.length >= 1)
+          countFiles = this.files.length;
+
+        if (countFiles)
+          label.querySelector('.input__file-button-text').innerText = 'Выбрано файлов: ' + countFiles;
+        else
+          label.querySelector('.input__file-button-text').innerText = labelVal;
+      });
+    });
   }
 
   addEx(): any {

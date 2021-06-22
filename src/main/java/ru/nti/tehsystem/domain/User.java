@@ -55,7 +55,7 @@ public class User implements UserDetails {
     private Set<Category> categories;
 
     @JsonView(Views.UserAll.class)
-    private boolean notificationsEnabled =false;
+    private boolean notificationsEnabled = false;
 
 
     public User() {
@@ -82,6 +82,9 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     @Override
     public Set<Roles> getAuthorities() {
+        Set<Roles> downloadList = new TreeSet<>(Comparator.comparing(Roles::getAuthority));
+        downloadList.addAll(this.authorities);
+        this.authorities = downloadList;
         return this.authorities;
     }
 
@@ -245,6 +248,7 @@ public class User implements UserDetails {
 
         this.notifications = notifications;
     }
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public Set<Category> getCategories() {
         return categories;

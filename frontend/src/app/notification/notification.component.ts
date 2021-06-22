@@ -10,17 +10,10 @@ import {AppComponent} from '../app.component';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit {
-  notif = false;
+
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, public app: AppService, public appc: AppComponent) {
-    this.http.get(this.app.serverURL + 'isemilactive/').subscribe((next: boolean) => {
-      this.notif = next;
-      if (next == null) {
-        this.notif = true;
-      }
-    }, error => {
-      this.notif = true;
-    });
+    app.isEmail();
   }
 
   ngOnInit(): void {
@@ -33,6 +26,6 @@ export class NotificationComponent implements OnInit {
   }
 
   notifyEmail() {
-    return !this.notif && this.app.authenticated;
+    return !this.app.notif && this.app.authenticated;
   }
 }

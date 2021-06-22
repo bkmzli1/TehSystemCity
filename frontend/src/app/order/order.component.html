@@ -55,7 +55,7 @@
         <button style="width: 100%" class="ld-but" (click)="creComplete(0)">Опровергнуть выполнение</button>
       </div>
       <p></p>
-      <div [hidden]="!isUserCre()">
+      <div [hidden]="!isUserCre() || orders.done">
         <button style="width: 100%" class="ld-but" (click)="del()">удалить</button>
       </div>
     </div>

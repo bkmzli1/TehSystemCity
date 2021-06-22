@@ -1,8 +1,10 @@
 package ru.nti.tehsystem.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,6 +35,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    @Value(value = "classpath:" + "templates/*")
+    Resource[] schemaFiles;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(this.userService).passwordEncoder(this.bCryptPasswordEncoder);
@@ -62,27 +67,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         loadTemplates(http);
-
-
-//             http.authorizeRequests()
-//                     .antMatchers("/templates/**", "/static/**", "/registration", "/login", "/user").permitAll()
-//                    .antMatchers("/**","/ordersCreate").authenticated()
-//                    .antMatchers("/**").authenticated()
-//                    .antMatchers("/**").authenticated()
-//                    .anyRequest()
-//                    .authenticated()
-//                    .and()
-//                    .formLogin()
-//                    .loginPage("/login")
-//                     .defaultSuccessUrl("/ordersCreate")
-//                    .permitAll()
-//                    .and()
-//                    .logout()
-//                    .permitAll().and().csrf().disable().httpBasic();
-
+        for (Resource resource : schemaFiles) {
+            http.authorizeRequests().antMatchers("/"+resource.getFile().getName()).permitAll();
+        }
 
         http.authorizeRequests()
-                .antMatchers("/**").permitAll()
+                .antMatchers("/templates/**", "/static/**", "/registration", "/login", "/user").permitAll()
+                .antMatchers("/**").authenticated()
+                .antMatchers("/**").authenticated()
+                .antMatchers("/**").authenticated()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -93,7 +86,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll().and().csrf().disable().httpBasic();
-        http.csrf().disable().httpBasic();
+
+
+//        http.authorizeRequests()
+//                .antMatchers("/**").permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/ordersCreate")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll().and().csrf().disable().httpBasic();
+//        http.csrf().disable().httpBasic();
 
     }
 
